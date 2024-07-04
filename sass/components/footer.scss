@@ -1,0 +1,177 @@
+.footer {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("../assets/images/footer/footer-bg.webp");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 64px 0;
+  p,
+  a {
+    font-size: clamp(16px, 3vw, 14px);
+    line-height: 22.4px;
+  }
+
+  .container {
+    color: var(--white);
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  &__general {
+    flex: 1 1 100%;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex: 1 1 calc(50% - 50px);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      flex: 1 1 calc(10% - 50px);
+    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    &_img {
+      flex: 1 1 100%;
+      img {
+        max-width: 80px;
+      }
+    }
+
+    &_addres,
+    &_contact {
+      flex: 1 1 calc((100% / 2) - 30px);
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  &__wrap-inwestor {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      align-content: flex-start;
+    }
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      flex: 1 1 calc(50% - 50px);
+    }
+
+    .footer__investor {
+      flex: 1 1 100%;
+      &.active {
+        h6 {
+          &::after {
+            transform: rotate(180deg);
+          }
+          padding: 12px 0 0 0;
+        }
+      }
+
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        flex: 0 1 calc(100% / 4);
+      }
+      h6 {
+        padding: 12px 0;
+        display: flex;
+        text-transform: uppercase;
+        font-size: 16px;
+        @media (max-width: map-get($grid-breakpoints, lg)) {
+          border-top: 1px solid var(--passus-grey);
+
+          &::after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-image: url(../assets/images/header/check.png);
+            background-size: 13px 7px;
+            vertical-align: middle;
+            margin-left: auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+            position: relative;
+          }
+        }
+      }
+
+      &_items {
+        display: none;
+        flex: 1 1 50%;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+          display: flex;
+        }
+        flex-wrap: wrap;
+        margin-top: 1em;
+
+        a {
+          gap: 6px;
+          display: flex;
+          align-items: center;
+          padding: 8px 0;
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
+
+  &__investor,
+  &__general,
+  &__bottom {
+    a {
+      color: var(--passus-grey);
+    }
+  }
+
+  &__bottom {
+    backdrop-filter: blur(25px);
+    background-color: var(--blur);
+    padding: 25px;
+    flex: 1 1 100%;
+    border-radius: 12px;
+
+    &,
+    &_polices {
+      display: flex;
+      flex-wrap: wrap;
+
+      a {
+        flex: 1 1 100%;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+          flex: 1 1 calc((100% / 3) - 10px);
+        }
+      }
+    }
+
+    &_rights,
+    &_polices {
+      flex: 1 1 100%;
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        flex: 1 1 calc(100% / 2);
+      }
+    }
+
+    &_polices {
+      gap: 10px;
+    }
+
+    a {
+      padding: 8px 0;
+      font-size: 14px;
+      line-height: 22.4px;
+      color: var(--white);
+      @media (max-width: map-get($grid-breakpoints, lg)) {
+        text-decoration: underline;
+      }
+    }
+  }
+}

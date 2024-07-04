@@ -1,0 +1,195 @@
+.header {
+  ul {
+    list-style: none;
+  }
+
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 9;
+
+  &__logo {
+    margin-right: auto;
+    @media (max-width: map-get($grid-breakpoints, xl)) {
+      position: relative;
+      z-index: 9;
+    }
+  }
+
+  .container,
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav {
+    gap: 10px;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      gap: 30px;
+    }
+
+    [aria-current] {
+      color: var(--primary-theme);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--secondary-color);
+        }
+      }
+    }
+
+    li {
+      border-radius: 8px;
+      padding: 8px 10px;
+      transition: 0.35s;
+      @media (hover: hover) {
+        &:hover {
+          backdrop-filter: blur(25px);
+          background-color: var(--blur);
+          cursor: pointer;
+
+          &.menu-item-has-children {
+            a {
+              &::after {
+                transform: rotate(180deg);
+              }
+            }
+
+            ul {
+              opacity: 1;
+              visibility: visible;
+              backdrop-filter: blur(25px);
+              background-color: var(--blur);
+              li {
+                backdrop-filter: none;
+                background-color: transparent;
+              }
+            }
+          }
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+
+        &.sub-menu {
+          display: none;
+          @media (min-width: map-get($grid-breakpoints, xl)) {
+            display: block;
+            position: absolute;
+            z-index: 9;
+            left: 0px;
+            top: 50px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s;
+          }
+          padding: 10px;
+          border-radius: 8px;
+          li {
+            padding: 5px 0;
+            @media (max-width: map-get($grid-breakpoints, xl)) {
+              backdrop-filter: none;
+              background-color: transparent;
+
+              &:not(:last-child) {
+                margin-bottom: 5px;
+              }
+            }
+            a {
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+
+    .menu-item-has-children {
+      a {
+        &:not(:last-child) {
+          position: relative;
+          transition: rotate 0.45s;
+
+          @media (max-width: map-get($grid-breakpoints, xl)) {
+            &.active {
+              &::after {
+                transform: rotate(180deg);
+              }
+            }
+          }
+          &::after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-image: url(../assets/images/header/check.png);
+            background-size: 13px 7px;
+            vertical-align: middle;
+            margin-left: 3px;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+            position: relative;
+          }
+        }
+      }
+    }
+
+    a {
+      color: var(--white);
+      text-transform: capitalize;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  //__mobile
+  &__nav {
+    @media (max-width: map-get($grid-breakpoints, xl)) {
+      padding: 120px 50px 50px;
+      background: url(../assets/images/header/nav-bar.webp) no-repeat
+        center/cover;
+      position: fixed;
+      left: -100%;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 5;
+      flex-direction: column;
+      align-items: start;
+      overflow: auto;
+      transition: all 0.5s;
+
+      li {
+        border-radius: 8px;
+        padding: 8px 10px;
+        transition: 0.35s;
+        width: 100%;
+        backdrop-filter: blur(25px);
+        background-color: var(--blur);
+
+        a {
+          display: flex;
+          align-items: center;
+          &::after {
+            margin-left: auto !important;
+          }
+        }
+      }
+
+      &.active {
+        left: 0;
+
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

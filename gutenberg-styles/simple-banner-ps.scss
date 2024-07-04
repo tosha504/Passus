@@ -1,0 +1,11 @@
+@use "../sass/components/_varibles" as v;
+
+.simple-banner-ps {
+  min-height: clamp(232px, 100vh, 330px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}

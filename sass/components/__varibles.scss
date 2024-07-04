@@ -1,0 +1,35 @@
+//Fonts
+:root {
+  //Fonts
+  --inter: "Inter", sans-serif;
+
+  //Colors
+  --black: #141313;
+  --white: #fff;
+  --passus-grey: #9f9797;
+  --grey5: #f6f4f2;
+  --grey3: #e3dad8;
+  --primary-theme: #de0056;
+  --secondary-color: green;
+  --blur: #ffffff1a;
+  --passu-dark-grey: #7c7272;
+}
+
+//break-points
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+);
+
+@mixin fontz($fmx, $fmn) {
+  font-size: calc(#{$fmx} + (#{$fmn} * (100vw / 1920)));
+}
+
+@mixin line($lmx, $lmn) {
+  line-height: calc(#{$lmx} + (#{$lmn} * (100vw / 1400)));
+}

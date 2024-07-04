@@ -1,0 +1,41 @@
+{
+  "name": "acf/kontak-form-banner-ps",
+  "title": "Kontak form banner PS",
+  "description": "A custom kontak form banner block.",
+  "style": [
+    "file:../../css-blocks/kontak-form-banner-ps.css"
+  ],
+  "category": "custom-layout-category",
+  "icon": "dashicons-email-alt2",
+  "keywords": [
+    "about",
+    "quote"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "kontak-form-banner-ps.php"
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "alignText": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true
+    },
+    "typography": {
+      "lineHeight": true,
+      "fontSize": true
+    },
+    "fullHeight": true
+  }
+}

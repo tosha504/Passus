@@ -1,0 +1,41 @@
+{
+  "name": "acf/kontak-general-ps",
+  "title": "Kontak general PS",
+  "description": "A custom kontak general ps block.",
+  "style": [
+    "file:../../css-blocks/kontak-general-ps.css"
+  ],
+  "category": "custom-layout-category",
+  "icon": "dashicons-editor-table",
+  "keywords": [
+    "about",
+    "quote"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "kontak-general-ps.php"
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "alignText": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true
+    },
+    "typography": {
+      "lineHeight": true,
+      "fontSize": true
+    },
+    "fullHeight": true
+  }
+}

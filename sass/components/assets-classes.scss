@@ -1,0 +1,15 @@
+%top-line {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 81px;
+    height: 8px;
+    border-radius: 12px;
+    background: var(--primary-theme);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

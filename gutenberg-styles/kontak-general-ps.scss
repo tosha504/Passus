@@ -1,0 +1,42 @@
+@use "../sass/components/_varibles" as v;
+@use "../sass/components/assets-classes.scss";
+
+.kontak-general-ps {
+  background: var(--grey5);
+  padding: 45px 0;
+
+  @media (min-width: map-get(v.$grid-breakpoints, md)) {
+    padding: 90px 0;
+  }
+
+  &__items {
+    display: flex;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      @extend %top-line;
+      padding: 20px 0;
+    }
+
+    &_item {
+      flex: 1 1 100%;
+
+      @media (min-width: map-get(v.$grid-breakpoints, md)) {
+        flex: 1 1 calc((100% / 3) - 50px);
+      }
+
+      &-content {
+        font-size: clamp(14px, 3vw, 16px);
+        font-weight: 500;
+        a {
+          color: var(--primary-theme);
+        }
+      }
+    }
+  }
+}

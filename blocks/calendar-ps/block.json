@@ -1,0 +1,41 @@
+{
+  "name": "acf/calendar-ps",
+  "title": "Calendar PS",
+  "description": "A custom calendar block.",
+  "style": [
+    "file:../../css-blocks/calendar-ps.css"
+  ],
+  "category": "custom-layout-category",
+  "icon": "dashicons-calendar",
+  "keywords": [
+    "about",
+    "quote"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "calendar-ps.php"
+  },
+  "align": "full",
+  "supports": {
+    "anchor": true,
+    "alignContent": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "alignText": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true
+    },
+    "typography": {
+      "lineHeight": true,
+      "fontSize": true
+    },
+    "fullHeight": true
+  }
+}

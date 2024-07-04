@@ -1,0 +1,32 @@
+.button {
+  border-radius: 12px;
+  color: black;
+  padding: 10px 20px;
+
+  &__primary {
+    background-color: var(--secondary-color);
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      &:hover {
+        background-color: var(--primary-theme);
+        color: black;
+      }
+    }
+  }
+
+  &__arrow {
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 600;
+    line-height: 150%;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    &:after {
+      content: "";
+      display: block;
+      background: url(../assets/images/arrow-btn.svg) no-repeat center/cover;
+      width: 13px;
+      height: 13px;
+    }
+  }
+}

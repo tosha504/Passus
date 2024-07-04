@@ -1,0 +1,105 @@
+@use "../sass/components/_varibles" as v;
+
+.news-ps {
+  background: var(--white);
+  padding: 30px 0;
+  @media (min-width: map-get(v.$grid-breakpoints, md)) {
+    padding: 60px 0;
+  }
+
+  .button {
+    background: var(--grey5);
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 32px;
+    @media (max-width: map-get(v.$grid-breakpoints, sm)) {
+      justify-content: center;
+    }
+
+    &_item {
+      flex: 1 1 100%;
+      @media (min-width: map-get(v.$grid-breakpoints, md)) {
+        flex: 0 1 calc((100% / 2) - 32px);
+      }
+
+      @media (min-width: map-get(v.$grid-breakpoints, lg)) {
+        flex: 1 1 calc((100% / 3) - 32px);
+      }
+
+      max-width: clamp(345px, 100vw, 415px);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid var(--grey3);
+      transition: 0.3s;
+
+      a {
+        color: var(--black);
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: 0px 8px 25px -4px rgba(23, 23, 23, 0.08);
+          border-color: transparent;
+          .news-ps__items_item-excerpt {
+            color: var(--black);
+          }
+
+          span {
+            color: var(--primary-theme);
+            &::after {
+              filter: invert(12%) sepia(81%) saturate(7500%) hue-rotate(331deg)
+                brightness(86%) contrast(102%);
+            }
+          }
+        }
+      }
+
+      &-date,
+      &-title,
+      span {
+        font-weight: 600;
+      }
+
+      &-date {
+        font-size: clamp(12px, 3vw, 14px);
+      }
+
+      &-title {
+        flex: 1 1 100%;
+        font-size: clamp(18px, 3vw, 24px);
+      }
+
+      &-excerpt {
+        flex: 1 1 100%;
+        color: var(--passus-grey);
+        transition: 0.35s;
+      }
+
+      span {
+        font-size: clamp(14px, 3vw, 16px);
+        position: relative;
+        display: flex;
+        align-items: center;
+        transition: 0.15s;
+
+        gap: 8px;
+        &::after {
+          content: "";
+          background: url(../assets/images/news-arrow.svg) no-repeat
+            center/cover;
+          display: block;
+          height: 12px;
+          width: 11px;
+        }
+      }
+    }
+  }
+}

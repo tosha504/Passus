@@ -1,0 +1,106 @@
+@use "../sass/components/_varibles" as v;
+
+.kontak-form-banner-ps {
+  background-color: var(--white);
+  padding-bottom: 40px;
+  @media (min-width: map-get(v.$grid-breakpoints, md)) {
+    padding-bottom: 70px;
+  }
+  .banner-top {
+    min-height: clamp(232px, 100vh, 330px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
+    display: flex;
+    align-items: center;
+    h1 {
+      color: var(--white);
+    }
+  }
+
+  &__form {
+    color: var(--white);
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    width: 100%;
+
+    @media (min-width: map-get(v.$grid-breakpoints, md)) {
+      align-items: center;
+    }
+
+    &_items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: clamp(14px, 3vw, 16px);
+        color: var(--black);
+      }
+      @media (min-width: map-get(v.$grid-breakpoints, md)) {
+        margin-top: -100px;
+      }
+    }
+
+    &_items,
+    .wpcf7 {
+      @media (min-width: map-get(v.$grid-breakpoints, md)) {
+        flex: 1 1 calc(50% - 40px);
+      }
+    }
+
+    .wpcf7 {
+      border: 1px solid var(--grey3);
+      padding: 24px 24px 0;
+      max-width: 90vw;
+      border-radius: 12px;
+      margin-top: -15vw;
+      background-color: var(--white);
+
+      @media (min-width: map-get(v.$grid-breakpoints, md)) {
+        padding: 32px 32px 0;
+        max-width: 100vw;
+        margin-top: -180px;
+      }
+
+      form {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        width: 100%;
+
+        input[type="submit"] {
+          border: none;
+          background-color: var(--primary-theme);
+          font-weight: 600;
+          font-size: 16px;
+          border-radius: 6px;
+          width: 100%;
+          padding: 10px 0;
+          color: var(--white);
+        }
+
+        .wpcf7-response-output {
+          margin: 0em 0.5em 1em;
+          border: none;
+          color: var(--black);
+        }
+      }
+
+      .wpcf7-list-item {
+        margin-left: 0;
+      }
+      label {
+        span {
+          font-weight: 500;
+          font-size: clamp(12px, 3vw, 14px);
+          color: var(--black);
+        }
+      }
+    }
+  }
+}

@@ -97,6 +97,45 @@
 
 /***/ }),
 
+/***/ "./gutenberg-styles/kontak-form-banner-ps.scss":
+/*!*****************************************************!*\
+  !*** ./gutenberg-styles/kontak-form-banner-ps.scss ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/kontak-general-ps.scss":
+/*!*************************************************!*\
+  !*** ./gutenberg-styles/kontak-general-ps.scss ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/markets-ps.scss":
+/*!******************************************!*\
+  !*** ./gutenberg-styles/markets-ps.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./gutenberg-styles/news-ps.scss":
 /*!***************************************!*\
   !*** ./gutenberg-styles/news-ps.scss ***!
@@ -110,10 +149,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./gutenberg-styles/newsletter-ps.scss":
+/*!*********************************************!*\
+  !*** ./gutenberg-styles/newsletter-ps.scss ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./gutenberg-styles/partners-ps.scss":
 /*!*******************************************!*\
   !*** ./gutenberg-styles/partners-ps.scss ***!
   \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/raports-ps.scss":
+/*!******************************************!*\
+  !*** ./gutenberg-styles/raports-ps.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/search-doscs-ps.scss":
+/*!***********************************************!*\
+  !*** ./gutenberg-styles/search-doscs-ps.scss ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -175,22 +253,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./gutenberg-styles/calendar-ps.scss":
-/*!*******************************************!*\
-  !*** ./gutenberg-styles/calendar-ps.scss ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./gutenberg-styles/kontak-form-banner-ps.scss":
+/***/ "./gutenberg-styles/banner-title-descr-ps.scss":
 /*!*****************************************************!*\
-  !*** ./gutenberg-styles/kontak-form-banner-ps.scss ***!
+  !*** ./gutenberg-styles/banner-title-descr-ps.scss ***!
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -201,10 +266,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./gutenberg-styles/kontak-general-ps.scss":
-/*!*************************************************!*\
-  !*** ./gutenberg-styles/kontak-general-ps.scss ***!
-  \*************************************************/
+/***/ "./gutenberg-styles/banner-with-table-ps.scss":
+/*!****************************************************!*\
+  !*** ./gutenberg-styles/banner-with-table-ps.scss ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -214,10 +279,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./gutenberg-styles/markets-ps.scss":
-/*!******************************************!*\
-  !*** ./gutenberg-styles/markets-ps.scss ***!
-  \******************************************/
+/***/ "./gutenberg-styles/bg-title-content-image-ps.scss":
+/*!*********************************************************!*\
+  !*** ./gutenberg-styles/bg-title-content-image-ps.scss ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./gutenberg-styles/calendar-ps.scss":
+/*!*******************************************!*\
+  !*** ./gutenberg-styles/calendar-ps.scss ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -314,16 +392,22 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/assets/js/index": 0,
-/******/ 			"css-blocks/markets-ps": 0,
-/******/ 			"css-blocks/kontak-general-ps": 0,
-/******/ 			"css-blocks/kontak-form-banner-ps": 0,
 /******/ 			"css-blocks/calendar-ps": 0,
+/******/ 			"css-blocks/bg-title-content-image-ps": 0,
+/******/ 			"css-blocks/banner-with-table-ps": 0,
+/******/ 			"css-blocks/banner-title-descr-ps": 0,
 /******/ 			"css-blocks/banner-ps": 0,
 /******/ 			"src/index": 0,
 /******/ 			"css-blocks/text-descr-image-ps": 0,
 /******/ 			"css-blocks/simple-banner-ps": 0,
+/******/ 			"css-blocks/search-doscs-ps": 0,
+/******/ 			"css-blocks/raports-ps": 0,
 /******/ 			"css-blocks/partners-ps": 0,
-/******/ 			"css-blocks/news-ps": 0
+/******/ 			"css-blocks/newsletter-ps": 0,
+/******/ 			"css-blocks/news-ps": 0,
+/******/ 			"css-blocks/markets-ps": 0,
+/******/ 			"css-blocks/kontak-general-ps": 0,
+/******/ 			"css-blocks/kontak-form-banner-ps": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -373,17 +457,23 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./src/index.js")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/banner-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/calendar-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/kontak-form-banner-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/kontak-general-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/markets-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/news-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/partners-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/simple-banner-ps.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./gutenberg-styles/text-descr-image-ps.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps","css-blocks/calendar-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/partners-ps","css-blocks/news-ps"], () => (__webpack_require__("./sass/index.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./src/index.js")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/banner-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/banner-title-descr-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/banner-with-table-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/bg-title-content-image-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/calendar-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/kontak-form-banner-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/kontak-general-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/markets-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/news-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/newsletter-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/partners-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/raports-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/search-doscs-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/simple-banner-ps.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./gutenberg-styles/text-descr-image-ps.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css-blocks/calendar-ps","css-blocks/bg-title-content-image-ps","css-blocks/banner-with-table-ps","css-blocks/banner-title-descr-ps","css-blocks/banner-ps","src/index","css-blocks/text-descr-image-ps","css-blocks/simple-banner-ps","css-blocks/search-doscs-ps","css-blocks/raports-ps","css-blocks/partners-ps","css-blocks/newsletter-ps","css-blocks/news-ps","css-blocks/markets-ps","css-blocks/kontak-general-ps","css-blocks/kontak-form-banner-ps"], () => (__webpack_require__("./sass/index.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

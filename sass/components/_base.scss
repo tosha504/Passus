@@ -15,6 +15,7 @@ body {
   color: var(--black);
   font-family: var(--inter);
   margin: 0;
+  font-size: clamp(14px, 3vw, 16px);
   line-height: 1.6;
   scroll-behavior: smooth;
   background-color: black;
@@ -110,7 +111,6 @@ img {
   height: auto;
 }
 
-
 .members {
   padding: 30px 0;
   background-color: var(--white);
@@ -123,7 +123,11 @@ img {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 16px;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      gap: 32px;
+    }
 
     .item {
       flex: 1 1 100%;
@@ -145,17 +149,18 @@ img {
           }
 
           .item__download::before {
-            filter: invert(12%) sepia(81%) saturate(7500%) hue-rotate(331deg) brightness(86%) contrast(102%);
+            filter: invert(12%) sepia(81%) saturate(7500%) hue-rotate(331deg)
+              brightness(86%) contrast(102%);
           }
         }
       }
 
       @media (min-width: map-get($grid-breakpoints, sm)) {
-        flex: 1 1 calc((100% / 2) - 32px);
+        flex: 0 1 calc((100% / 2) - 32px);
       }
 
       @media (min-width: map-get($grid-breakpoints, lg)) {
-        flex: 1 1 calc((100% / 3) - 32px);
+        flex: 0 1 calc((100% / 3) - 32px);
       }
 
       &__top {
@@ -170,11 +175,11 @@ img {
 
         .linkedin-social {
           margin-left: auto;
-          background: url('http://passus.local/wp-content/uploads/2024/06/LinkedIn.png')no-repeat center/cover;
+          background: url("http://passus.local/wp-content/uploads/2024/06/LinkedIn.png")
+            no-repeat center/cover;
           width: 25px;
           height: 25px;
         }
-
       }
 
       &__position {
@@ -198,11 +203,12 @@ img {
         gap: 10px;
 
         &::before {
-          content: '';
+          content: "";
           width: 16px;
           padding: 4px;
           height: 16px;
-          background: url(../assets/images/download-icon.svg) no-repeat center/cover;
+          background: url(../assets/images/download-icon.svg) no-repeat
+            center/cover;
         }
       }
     }

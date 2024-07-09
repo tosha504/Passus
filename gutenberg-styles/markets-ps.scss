@@ -30,6 +30,7 @@
       align-items: center;
       flex-direction: column;
       padding: 20px;
+      border-radius: 12px;
 
       @media (hover: hover) {
         &:hover {
@@ -44,7 +45,7 @@
         padding: 40px;
       }
 
-      @media (min-width: map-get(v.$grid-breakpoints, md)) {
+      @media (min-width: map-get(v.$grid-breakpoints, lg)) {
         flex: 1 1 calc((100% / 3) - 32px);
       }
 

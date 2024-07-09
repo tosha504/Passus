@@ -31,11 +31,8 @@
     }
 
     [aria-current] {
-      color: var(--primary-theme);
-
       @media (hover: hover) {
         &:hover {
-          color: var(--secondary-color);
         }
       }
     }

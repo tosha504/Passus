@@ -1,0 +1,9 @@
+@use "../sass/components/_varibles" as v;
+
+.banner-title-descr-ps {
+  padding: 150px 0 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  color: var(--white);
+}

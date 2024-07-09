@@ -30,3 +30,16 @@ function show_title_and_btn($tag, $text_title, $button = null)
   </div>
   TITLE_AND_BTN;
 }
+
+
+function banner_table_templates()
+{
+  if (have_rows('tables')) {
+    while (have_rows('tables')) {
+      the_row();
+      if (get_row_layout() == 'simple_table') {
+        get_template_part('builder-templates/simple-table');
+      }
+    }
+  }
+}

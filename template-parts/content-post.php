@@ -23,7 +23,8 @@ $background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="backgr
 
 <div class="container">
 	<div class="posts-content">
-		<?php display_year_buttons(); ?>
+		<?php
+		display_year_buttons(get_post_type()); ?>
 		<div id="post-list">
 			<!-- Posts will be dynamically loaded here based on the selected year -->
 		</div>

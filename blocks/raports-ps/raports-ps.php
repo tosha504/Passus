@@ -28,7 +28,7 @@ $descr = get_field('descr');
 $image = get_field('image');
 $background_color = !empty(get_field('background_color')) ? 'style="background:' . get_field('background_color') . ';"' : '';
 $image = get_field('image');
-?>
+$curent_reports = get_field('curent_reports'); ?>
 <!-- Raports-ps start -->
 <section class="raports-ps" <?php echo $background_color; ?>>
   <div class="container">
@@ -39,51 +39,31 @@ $image = get_field('image');
       </div>
       <?php my_custom_attachment_image($image); ?>
     </div>
+
     <div class="raports-ps__right">
-      <ul class="raports-ps__right_elemnts elements">
-        <li class="elements__item item">
-          <div class="item__date-cat">
-            <p>
-              22.01.2024
-            </p>
-            <p class="cat">Raport ESPI 2/2024</p>
-          </div>
-          <p class="item__title">
-            Rejestracja zmian Statutu oraz rejestracja połączenia ze spółką zależną w KRS
-          </p>
-          <p class="item__descr">Zarząd Passus S.A. z siedzibą w Warszawie informuje o zarejestrowaniu w dniu 29 grudnia 2023 roku przez Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy Krajowego Rejestru Sądowego zmian w Krajowym Rejestrze Sądowym w zakresie zmiany statutu Spółki...</p>
-          <span>Pełna treść raportu</span>
-        </li>
-
-        <li class="elements__item item">
-          <div class="item__date-cat">
-            <p>
-              22.01.2024
-            </p>
-            <p class="cat">Raport ESPI 2/2024</p>
-          </div>
-          <p class="item__title">
-            Rejestracja zmian Statutu oraz rejestracja połączenia ze spółką zależną w KRS
-          </p>
-          <p class="item__descr">Zarząd Passus S.A. z siedzibą w Warszawie informuje o zarejestrowaniu w dniu 29 grudnia 2023 roku przez Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy Krajowego Rejestru Sądowego zmian w Krajowym Rejestrze Sądowym w zakresie zmiany statutu Spółki...</p>
-          <span>Pełna treść raportu</span>
-        </li>
-
-        <li class="elements__item item">
-          <div class="item__date-cat">
-            <p>
-              22.01.2024
-            </p>
-            <p class="cat">Raport ESPI 2/2024</p>
-          </div>
-          <p class="item__title">
-            Rejestracja zmian Statutu oraz rejestracja połączenia ze spółką zależną w KRS
-          </p>
-          <p class="item__descr">Zarząd Passus S.A. z siedzibą w Warszawie informuje o zarejestrowaniu w dniu 29 grudnia 2023 roku przez Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy Krajowego Rejestru Sądowego zmian w Krajowym Rejestrze Sądowym w zakresie zmiany statutu Spółki...</p>
-          <span>Pełna treść raportu</span>
-        </li>
-      </ul>
-
+      <?php if (!empty($curent_reports) && count($curent_reports) > 0) { ?>
+        <ul class="raports-ps__right_elemnts elements">
+          <?php
+          foreach ($curent_reports as $key => $reports) {
+            $espi = get_field('espi', $reports->ID);
+            $date = new DateTime($reports->post_date);
+            // Format the date as 'd.m.Y'
+            $formattedDate = $date->format('d.m.Y');
+            $trim_words = 40;
+            $excerpt = wp_trim_words($reports->post_content, $trim_words);
+            var_dump(get_post_type_archive_link('current-reports')); ?>
+            <li class="elements__item item">
+              <div class="item__date-cat">
+                <p><?php echo $formattedDate ?></p>
+                <p class="cat"><?php echo $espi; ?></p>
+              </div>
+              <p class="item__title"><?php echo $reports->post_title ?></p>
+              <p class="item__descr"><?php echo $excerpt ?></p>
+              <span>Pełna treść raportu</span>
+            </li>
+          <?php } ?>
+        </ul>
+      <?php } ?>
     </div>
   </div>
 </section><!-- Raports-ps end -->

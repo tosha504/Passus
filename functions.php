@@ -213,10 +213,10 @@ add_filter('get_the_archive_title', function ($title) {
 });
 
 
-function display_year_buttons()
+function display_year_buttons($post_type)
 {
 	global $wpdb;
-	$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_type = 'post' AND post_status IN ('publish', 'private') ORDER BY post_date DESC");
+	$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_type = '$post_type' AND post_status IN ('publish', 'private') ORDER BY post_date DESC");
 	$get_year = isset($_GET['_year']) ? intval($_GET['_year']) : intval(date('Y'));
 	echo '<form id="year-filter-form">';
 	foreach ($years as $key => $year) {
@@ -314,11 +314,10 @@ function filter_posts_by_year_callback()
 	if ($query->have_posts()) {
 
 		while ($query->have_posts()) {
-			$query->the_post();
-	?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			$query->the_post(); ?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h2><?php echo  get_the_title(); ?></h2>
 				<p><?php echo  get_the_excerpt(); ?></p>
-
 			</article><!-- #post-<?php the_ID(); ?> -->
 <?php 	}
 	} else {

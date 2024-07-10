@@ -20,6 +20,15 @@ function register_post_types()
     'rewrite' => array('slug' => 'kalendarium'),
     'has_archive' => true,
   ));
+
+  register_post_type('current-reports', array(
+    'label' => 'Raporty Bieżące',
+    'public' => true,
+    'menu_icon'           => 'dashicons-media-text',
+    'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+    'rewrite' => array('slug' => 'raporty-biezace'),
+    'has_archive' => true,
+  ));
 }
 
 

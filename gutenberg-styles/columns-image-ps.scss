@@ -1,0 +1,39 @@
+@use "../sass/components/_varibles" as v;
+@use "../sass/components/assets-classes.scss";
+.columns-image-ps {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  color: var(--white);
+  padding: 50px 0;
+  @media (min-width: map-get(v.$grid-breakpoints, lg)) {
+    padding: 100px 0;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 43px;
+  }
+
+  @for $index from 1 through 6 {
+    h#{$index} {
+      @extend %top-line;
+      padding-top: 20px;
+    }
+  }
+
+  &__left,
+  &__right {
+    @media (min-width: map-get(v.$grid-breakpoints, md)) {
+      flex: 1 1 calc(50% - 43px);
+    }
+  }
+
+  &__image {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

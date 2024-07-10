@@ -1,0 +1,128 @@
+@use "../sass/components/_varibles" as v;
+@use "../sass/components/assets-classes.scss";
+.segments-ps {
+  background-color: var(--white);
+  padding: 40px 0;
+  @media (min-width: map-get(v.$grid-breakpoints, lg)) {
+    padding: 80px 0;
+  }
+
+  @for $index from 1 through 6 {
+    h#{$index} {
+      @extend %top-line;
+      padding-top: 20px;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+
+    @media (min-width: map-get(v.$grid-breakpoints, md)) {
+      gap: 24px;
+    }
+    > li {
+      text-align: start;
+      border: 1px solid var(--grey3);
+      border-radius: 12px;
+      // @media (hover: hover) {
+      //   &:hover {
+      //     cursor: pointer;
+      //   }
+      // }
+
+      &.active {
+        border: 1px solid transparent;
+        box-shadow: 8px 8px 24px -4px rgba(23, 23, 23, 0.08);
+      }
+
+      .question {
+        display: flex;
+        align-items: center;
+        padding: 12px 24px;
+        @media (min-width: map-get(v.$grid-breakpoints, md)) {
+          padding: 40px;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        p {
+          &.img {
+            img {
+              @media (max-width: map-get(v.$grid-breakpoints, sm)) {
+                width: 56px;
+              }
+            }
+          }
+          &.title {
+            font-weight: 700;
+            margin: 0 auto 0 12px;
+            font-size: clamp(14px, 3vw, 32px);
+            @media (min-width: map-get(v.$grid-breakpoints, md)) {
+              margin: 0 auto 0 20px;
+            }
+          }
+        }
+
+        button {
+          background: transparent;
+
+          border: 0;
+          position: relative;
+          transition: 0.3s;
+          border-radius: 2px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          span {
+            margin: 15px;
+            background-image: url(../assets/images/prime-arrow-down.svg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 27px;
+            height: 15px;
+            transition: 0.3s;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          &.active {
+            span {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      .answer {
+        display: none;
+        padding: 0 24px 12px;
+        @media (min-width: map-get(v.$grid-breakpoints, lg)) {
+          padding: 0 40px 40px;
+          margin-left: 40%;
+        }
+
+        li {
+          margin-left: 20px;
+          list-style: disc;
+          &::marker {
+            color: var(--primary-theme);
+          }
+        }
+      }
+    }
+  }
+}

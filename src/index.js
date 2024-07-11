@@ -7,6 +7,38 @@
   var r = document.querySelector(':root');
 
 
+  jQuery(body).on('click', '#toggleButton', function (e) {
+    e.preventDefault()
+    toggleText(jQuery(this))
+  })
+
+  function toggleText(e) {
+
+    // console.log(jQuery(e).parent().siblings().find('#fullText').is(":visible"));
+    jQuery(e).parent().toggleClass('active')
+    jQuery(e).siblings('#shortText').hide(100)
+    jQuery(e).siblings('#fullText').slideDown(150)
+    jQuery(e).text('Zwiń')
+
+    if (jQuery(e).parent().siblings().find('#fullText').is(":visible")) {
+      jQuery(e).parent().removeClass('active')
+      jQuery(e).parent().siblings().find('#fullText').slideUp(100)
+      jQuery(e).parent().siblings().find('#fullText').hide(200)
+      jQuery(e).parent().siblings().find('#shortText').slideDown(100)
+      jQuery(e).parent().siblings().find('#toggleButton').text('Rozwiń')
+    }
+    // if (fullText.style.display === "none") {
+    //   fullText.style.display = "block"; // Show the full text
+    //   shortText.style.display = "none"; // Hide the short text
+    //   button.textContent = "Hide"; // Change button text to 'Hide'
+    // } else {
+    //   fullText.style.display = "none"; // Hide the full text
+    //   shortText.style.display = "block"; // Show only the short text
+    //   button.textContent = "Show More"; // Change button text to 'Show More'
+    // }
+  }
+
+
   burger.on("click", function () {
     burgerSpan.toggleClass("active");
     nav.toggleClass("active");

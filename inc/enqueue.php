@@ -10,6 +10,8 @@ defined('ABSPATH') || exit;
 if (!function_exists('start_scripts')) {
 	function start_scripts()
 	{
+		$query_args =	 curent_setting_args();
+		$my_query = new WP_Query($query_args);
 		$theme_uri = get_template_directory_uri();
 		// Custom JS
 		wp_enqueue_script('start_functions', $theme_uri . '/src/index.js', ['jquery'], time(), true);
@@ -17,6 +19,9 @@ if (!function_exists('start_scripts')) {
 		wp_localize_script('start_functions', 'localizedObject', [
 			'ajaxurl' => admin_url('admin-ajax.php'),
 			'nonce' => wp_create_nonce('ajax_nonce'),
+			'posts' => json_encode($my_query->query_vars), // Pass initial query
+			'current_page' => get_query_var('paged') ? get_query_var('paged') : 1,
+			'max_page' => $my_query->max_num_pages
 		]);
 
 		// Custom css

@@ -1,7 +1,7 @@
 @use "../sass/components/_varibles" as v;
 
 .bg-title-content-image-ps {
-  background: var(--white);
+  // background: var(--white);
   padding: 24px 15px;
 
   @media (min-width: map-get(v.$grid-breakpoints,lg )) {

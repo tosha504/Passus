@@ -229,67 +229,124 @@ function display_year_buttons($post_type)
 ?>
 	<script>
 		jQuery(document).ready(function($) {
-			// Function to handle fetching posts by year
-			function fetchPostsByYear(year) {
+			jQuery('body').on('click', function(e) {
+				console.log(e);
+			})
+			$('#loadMorePostMyLord').click(function() {
+				var year = $('button:focus').val();
+				var button = $(this),
+					data = {
+						'action': 'loadmore',
+						'query': localizedObject.posts, // Passed from wp_localize_script
+						'page': localizedObject.current_page
+					};
+
 				$.ajax({
-					url: '<?php echo admin_url('admin-ajax.php'); ?>',
+					url: localizedObject.ajaxurl,
 					type: 'POST',
 					data: {
-						'action': 'filter_posts_by_year',
-						'_year': year
+						'action': 'load_more_posts',
+						'_year': year,
+						'page': localizedObject.current_page
+					},
+					beforeSend: function(xhr) {
+
 					},
 					success: function(data) {
-						$('#post-list').html(data);
+						// console.log(data);
+						if (data) {
+							// console.log(data);
+							// button.text('Load more').prev().after(data); // Insert new posts
+							$('#post-list').append(data);
+
+							localizedObject.current_page++;
+
+							if (localizedObject.current_page == localizedObject.max_page)
+								button.remove(); // If last page, remove the button
+						} else {
+							button.remove(); // If no data, remove the button
+						}
+
+						// $('#post-list').append(data);
 					},
 					error: function() {
 						console.error('Failed to fetch data');
 					}
 				});
-			}
-
-
-			jQuery('.year-filter').on('click', function(e) {
-				var year = $('button:focus').val();
-				if (parseInt(jQuery(this).val()) === parseInt(year)) {
-					console.log(jQuery(this).siblings());
-					jQuery(this).addClass('active')
-				}
-				jQuery(this).siblings('button').removeClass('active')
-
 			})
 
+			// Function to handle fetching posts by year
+			// function fetchPostsByYear(year) {
+			// 	// $('#post-list').empty()
+			// 	// console.log();
+			// 	if (jQuery('#loadMorePostMyLord').length <= 0) {
 
-			// Handle form submission
-			$('#year-filter-form').on('submit', function(e) {
-				e.preventDefault();
-				var year = $('button:focus').val();
+			// 		$('<button id="loadMorePostMyLord">jopa</button>').insertAfter('#post-list')
+			// 	}
+			// 	$.ajax({
+			// 		url: localizedObject.ajaxurl,
+			// 		type: 'POST',
+			// 		data: {
+			// 			'action': 'filter_posts_by_year',
+			// 			'_year': year,
+			// 			'page': localizedObject.current_page
+			// 		},
+			// 		beforeSend: function(xhr) {
+			// 			console.log(xhr);
+			// 		},
+			// 		success: function(data) {
 
-				var newUrl = '?_year=' + year;
-				history.pushState({
-					year: year
-				}, '', newUrl);
-				fetchPostsByYear(year);
-			});
+			// 			$('#post-list').html(data);
+			// 		},
+			// 		error: function() {
+			// 			console.error('Failed to fetch data');
+			// 		}
+			// 	});
+			// }
+
+
+			// jQuery('.year-filter').on('click', function(e) {
+			// 	var year = $('button:focus').val();
+			// 	if (parseInt(jQuery(this).val()) === parseInt(year)) {
+			// 		// console.log(jQuery(this).siblings());
+			// 		jQuery(this).addClass('active')
+			// 	}
+			// 	jQuery(this).siblings('button').removeClass('active')
+
+			// })
+
+
+			// // Handle form submission
+			// $('#year-filter-form').on('submit', function(e) {
+			// 	e.preventDefault();
+			// 	var year = $('button:focus').val();
+
+			// 	var newUrl = '?_year=' + year;
+			// 	history.pushState({
+			// 		year: year
+			// 	}, '', newUrl);
+			// 	fetchPostsByYear(year);
+			// });
 
 
 
 			// Handle browser history navigation
-			window.onpopstate = function(event) {
-				console.log(event);
-				if (event.state && event.state.year) {
-					fetchPostsByYear(event.state.year);
-				} else {
-					// Default to current year if no state is available
-					fetchPostsByYear(new Date().getFullYear());
-				}
-			};
+			// window.onpopstate = function(event) {
+			// 	console.log(event);
+			// 	if (event.state && event.state.year) {
+			// 		fetchPostsByYear(event.state.year);
+			// 	} else {
+			// 		// Default to current year if no state is available
+			// 		fetchPostsByYear(new Date().getFullYear());
+			// 	}
+			// };
 
-			// Load posts for the current year or the year in the URL on initial load
-			var initialYear = new URL(window.location.href).searchParams.get('year');
-			fetchPostsByYear(initialYear || new Date().getFullYear());
+			// // Load posts for the current year or the year in the URL on initial load
+			// var initialYear = new URL(window.location.href).searchParams.get('year');
+			// fetchPostsByYear(initialYear || new Date().getFullYear());
 		});
 	</script>
-	<?php
+<?php
 }
 
 
@@ -298,30 +355,70 @@ add_action('wp_ajax_nopriv_filter_posts_by_year', 'filter_posts_by_year_callback
 
 function filter_posts_by_year_callback()
 {
-
 	$year = isset($_POST['_year']) ? intval($_POST['_year']) : intval(date('Y'));
+	$args = curent_setting_args();
+	$args['page'] = 1;
+	// $args['paged'] = $_POST['page'] + 1;
+	$args['date_query'] = array(
+		array(
+			'year' => $year
+		),
+	);
+
+	$query = new WP_Query($args);
+	if ($query->have_posts()) {
+
+		while ($query->have_posts()) {
+			$query->the_post();
+
+			get_template_part('template-parts/content', get_post_type());
+		}
+	} else {
+		echo '<p>No posts found f11or ' . esc_html($year) . '.</p>';
+	}
+	wp_die();
+}
+
+add_action('wp_ajax_load_more_posts', 'load_more_posts_callback');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts_callback');
+
+function load_more_posts_callback()
+{
+	$year = isset($_POST['_year']) ? intval($_POST['_year']) : intval(date('Y'));
+	$args = curent_setting_args();
+	$args['paged'] = $_POST['page'] + 1;
+	$args['date_query'] = array(
+		array(
+			'year' => $year
+		),
+	);
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/content', get_post_type());
+		}
+	} else {
+		echo '<p>No posts found for ' . esc_html($year) . '.</p>';
+	}
+	wp_die();
+}
+
+
+function curent_setting_args()
+{
+
+	$year = isset($_GET['_year']) ? intval($_GET['_year']) : intval(date('Y'));
 	$args = array(
-		'post_type' => 'post',
+		// 'post_type' => get_post_type(),
+		'posts_per_page' => 1,
 		'post_status' => array('publish', 'private'),
 		'date_query' => array(
 			array(
 				'year' => $year
 			),
 		),
-		'posts_per_page' => -1
 	);
-	$query = new WP_Query($args);
-	if ($query->have_posts()) {
-
-		while ($query->have_posts()) {
-			$query->the_post(); ?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<h2><?php echo  get_the_title(); ?></h2>
-				<p><?php echo  get_the_excerpt(); ?></p>
-			</article><!-- #post-<?php the_ID(); ?> -->
-<?php 	}
-	} else {
-		echo '<p>No posts found for ' . esc_html($year) . '.</p>';
-	}
-	wp_die();
+	return $args;
 }

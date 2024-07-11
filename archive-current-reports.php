@@ -33,14 +33,18 @@ $background =  !empty(get_field('bg_image_current_arch', 'options')) ? 'style="b
 	if ($query->have_posts()) {
 
 	?>
-		<div class="container pisia">
+		<div class="container">
 			<!-- <div class="archive-body-current-reports-ps"> -->
 			<?php
-			while ($query->have_posts()) {
-				$query->the_post();
-				get_template_part('template-parts/content', get_post_type()); ?>
-
-			<?php }
+			display_year_buttons(get_post_type()); ?>
+			<div id="post-list">
+				<!-- Posts will be dynamically loaded here based on the selected year -->
+			</div>
+			<?php
+			//  while ($query->have_posts()) {
+			// 	$query->the_post();
+			get_template_part('template-parts/content', get_post_type());
+			//  }
 			?>
 			<!-- </div> -->
 		</div>

@@ -1,7 +1,6 @@
 @use "../sass/components/_varibles" as v;
 
 .newsletter-ps {
-  background: var(--white);
   padding: 30px 15px;
   @media (min-width: map-get(v.$grid-breakpoints, lg)) {
     padding: 60px 0;

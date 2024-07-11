@@ -9,8 +9,7 @@
  */
 ?>
 
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<h2><?php echo  get_the_title(); ?></h2>
-	<p><?php echo  get_the_excerpt(); ?></p>
+	<p><?php echo  get_the_content(); ?></p>
 </article><!-- #post-<?php the_ID(); ?> -->

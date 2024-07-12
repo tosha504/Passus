@@ -81,17 +81,6 @@
         // }
 
         font-weight: 600;
-        &__date-cat {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-
-          .cat {
-            padding: 8px 12px;
-            border-radius: 8px;
-            background-color: var(--grey5);
-          }
-        }
 
         &__descr {
           font-weight: 400;

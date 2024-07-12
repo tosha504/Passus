@@ -12,19 +12,62 @@
     toggleText(jQuery(this))
   })
 
+  jQuery('#loadMorePostMyLord').click(function (e) {
+    e.preventDefault()
+    var year = jQuery('.year-filter.active').val();
+    var button = jQuery(this);
+    const postType = jQuery('#postType').val()
+    jQuery.ajax({
+      url: localizedObject.ajaxurl,
+      type: 'POST',
+      data: {
+        'action': 'load_more_posts',
+        '_year': year,
+        'page': localizedObject.current_page,
+        'post_type': postType
+      },
+      beforeSend: function (xhr) {
+
+      },
+      success: function (data) {
+        if (data) {
+          jQuery('#post-list').append(data);
+
+          localizedObject.current_page++;
+          console.log(localizedObject.current_page == localizedObject.max_page, parseInt(localizedObject.current_page), parseInt(localizedObject.max_page));
+          if (parseInt(localizedObject.current_page) == parseInt(localizedObject.max_page))
+            button.remove(); // If last page, remove the button
+        } else {
+          button.remove(); // If no data, remove the button
+        }
+
+        // jQuery('#post-list').append(data);
+      },
+      error: function () {
+        console.error('Failed to fetch data');
+      }
+    });
+  })
+
+
   function toggleText(e) {
 
-    // console.log(jQuery(e).parent().siblings().find('#fullText').is(":visible"));
     jQuery(e).parent().toggleClass('active')
-    jQuery(e).siblings('#shortText').hide(100)
-    jQuery(e).siblings('#fullText').slideDown(150)
-    jQuery(e).text('Zwiń')
+    jQuery(e).parent().hasClass('active') ? jQuery(e).text('Zwiń') : jQuery(e).text('Rozwiń')
+    // if (jQuery(e).parent().find('#fullText').is(":visible")) {
+    //   console.log(jQuery(e).parent().hasClass('active'));
+    //   jQuery(e).parent().removeClass('active')
+    //   jQuery(e).parent().siblings().find('#fullText').slideUp(100)
+    //   jQuery(e).parent().siblings().find('#fullText').hide(200)
+    //   jQuery(e).parent().siblings().find('#shortText').slideDown(100)
+    //   jQuery(e).parent().siblings().find('#toggleButton').text('Rozwiń')
+    // }
 
     if (jQuery(e).parent().siblings().find('#fullText').is(":visible")) {
-      jQuery(e).parent().removeClass('active')
-      jQuery(e).parent().siblings().find('#fullText').slideUp(100)
-      jQuery(e).parent().siblings().find('#fullText').hide(200)
-      jQuery(e).parent().siblings().find('#shortText').slideDown(100)
+      jQuery(e).parent().siblings().removeClass('active')
+      // jQuery(e).parent().siblings().find('#fullText').slideUp(100)
+      // jQuery(e).parent().siblings().find('#fullText').hide(200)
+      // jQuery(e).parent().siblings().find('#shortText').slideDown(100)
       jQuery(e).parent().siblings().find('#toggleButton').text('Rozwiń')
     }
     // if (fullText.style.display === "none") {
@@ -71,7 +114,6 @@
 
   function footerAccordionMenu() {
     jQuery('.footer__investor h6').on('click', function (e) {
-      console.log();
       jQuery(e.target).siblings('.footer__investor_items').slideToggle(500)
       if (jQuery(e.target).parent().children().siblings('.footer__investor_items').css('display') == 'block') {
         jQuery(e.target).parent().siblings().children('.footer__investor_items').slideUp(500)
@@ -79,7 +121,6 @@
       }
 
       if (!jQuery(e.target).parent().hasClass('active')) {
-        console.log('her');
         jQuery(e.target).parent().addClass('active')
       } else {
         jQuery(e.target).parent().removeClass('active')

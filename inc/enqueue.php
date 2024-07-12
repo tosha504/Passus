@@ -11,11 +11,11 @@ if (!function_exists('start_scripts')) {
 	function start_scripts()
 	{
 		$query_args =	 curent_setting_args();
+		$query_args['post_type'] = get_post_type();
 		$my_query = new WP_Query($query_args);
 		$theme_uri = get_template_directory_uri();
 		// Custom JS
 		wp_enqueue_script('start_functions', $theme_uri . '/src/index.js', ['jquery'], time(), true);
-
 		wp_localize_script('start_functions', 'localizedObject', [
 			'ajaxurl' => admin_url('admin-ajax.php'),
 			'nonce' => wp_create_nonce('ajax_nonce'),

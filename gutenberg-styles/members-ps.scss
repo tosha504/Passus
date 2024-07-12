@@ -1,0 +1,106 @@
+@use "../sass/components/_varibles" as v;
+
+.members {
+  padding: 30px 0;
+  background-color: var(--white);
+
+  @media (min-width: map-get(v.$grid-breakpoints, md)) {
+    padding: 70px 0;
+  }
+
+  &__items {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @media (min-width: map-get(v.$grid-breakpoints, lg)) {
+      gap: 32px;
+    }
+
+    .item {
+      flex: 1 1 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      border: 1px solid var(--grey3);
+      transition: 0.3s;
+
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: 8px 8px 24px -4px rgba(23, 23, 23, 0.08);
+          border: 1px solid transparent;
+
+          .item__top_title,
+          .item__download {
+            color: var(--primary-theme);
+          }
+
+          .item__download::before {
+            filter: invert(12%) sepia(81%) saturate(7500%) hue-rotate(331deg)
+              brightness(86%) contrast(102%);
+          }
+        }
+      }
+
+      @media (min-width: map-get(v.$grid-breakpoints, sm)) {
+        flex: 0 1 calc((100% / 2) - 32px);
+      }
+
+      @media (min-width: map-get(v.$grid-breakpoints, lg)) {
+        flex: 0 1 calc((100% / 3) - 32px);
+      }
+
+      &__top {
+        display: flex;
+        align-items: center;
+
+        &_title {
+          text-transform: capitalize;
+          font-weight: 600;
+          font-size: clamp(18px, 3vw, 24px);
+          transition: 0.3s;
+        }
+
+        .linkedin-social {
+          margin-left: auto;
+          background: url("http://passus.local/wp-content/uploads/2024/06/LinkedIn.png")
+            no-repeat center/cover;
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      &__position {
+        color: var(--primary-theme);
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      &__description {
+        flex: 1 1 100%;
+        padding: 20px 0;
+      }
+
+      &__download {
+        margin-top: auto;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: var(--black);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &::before {
+          content: "";
+          width: 16px;
+          padding: 4px;
+          height: 16px;
+          background: url(../assets/images/download-icon.svg) no-repeat
+            center/cover;
+        }
+      }
+    }
+  }
+}

@@ -6,8 +6,7 @@ body {
     background-position: 100%;
     color: var(--white);
   }
-
-  &.post-type-archive {
+  &.post-type-archive-calendar {
     h2 {
       font-size: clamp(24px, 3vw, 32px);
       padding: 15px 0 30px;
@@ -17,7 +16,8 @@ body {
 
       @extend %top-line;
     }
-
+  }
+  &.post-type-archive {
     .archive-header-ps {
       background-position: 70%;
     }
@@ -28,6 +28,12 @@ body {
         padding: 50px 0;
       }
       // background: var(--white);
+
+      .past-events {
+        .cat-item {
+          color: var(--passu-dark-grey);
+        }
+      }
 
       .past-events,
       .upcoming-events {

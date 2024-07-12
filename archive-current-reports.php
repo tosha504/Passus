@@ -21,32 +21,29 @@ $background =  !empty(get_field('bg_image_current_arch', 'options')) ? 'style="b
 		</div>
 	</div>
 
-
 	<?php
-	// Setup WP_Query parameters
-	$args = array(
-		'post_type' => 'current-reports',  // Change to your custom post type if necessary
-		'posts_per_page' => -1, // Retrieve all posts
-	);
-	// Create a new WP_Query instance
+	$args = curent_setting_args();
+	$args['post_type'] = get_post_type();
 	$query = new WP_Query($args);
-	if ($query->have_posts()) {
-
-	?>
+	if ($query->have_posts()) { ?>
 		<div class="container">
-			<!-- <div class="archive-body-current-reports-ps"> -->
-			<?php
-			display_year_buttons(get_post_type()); ?>
-			<div id="post-list">
-				<!-- Posts will be dynamically loaded here based on the selected year -->
+			<div class="posts-content">
+				<?php
+				display_year_buttons(get_post_type()); ?>
+				<div id="post-list">
+					<?php
+					while ($query->have_posts()) {
+						$query->the_post();
+						get_template_part('template-parts/content', get_post_type());
+					} ?>
+				</div>
+				<?php
+				if ($query->found_posts > 1) {
+					echo '<div class="load-more-wrap">
+						<a href="#" id="loadMorePostMyLord">Załaduj więcej</a>
+					</div>';
+				} ?>
 			</div>
-			<?php
-			//  while ($query->have_posts()) {
-			// 	$query->the_post();
-			get_template_part('template-parts/content', get_post_type());
-			//  }
-			?>
-			<!-- </div> -->
 		</div>
 	<?php } else {
 		// If no posts are found, load the template part for displaying no posts available

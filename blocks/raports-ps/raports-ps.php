@@ -47,13 +47,11 @@ $curent_reports = get_field('curent_reports'); ?>
           foreach ($curent_reports as $key => $reports) {
             $espi = get_field('espi', $reports->ID);
             $date = new DateTime($reports->post_date);
-            // Format the date as 'd.m.Y'
             $formattedDate = $date->format('d.m.Y');
             $trim_words = 40;
-            $excerpt = wp_trim_words($reports->post_content, $trim_words);
-            var_dump(get_post_type_archive_link('current-reports')); ?>
+            $excerpt = wp_trim_words($reports->post_content, $trim_words); ?>
             <li class="elements__item item">
-              <div class="item__date-cat">
+              <div class="date-cat">
                 <p><?php echo $formattedDate ?></p>
                 <p class="cat"><?php echo $espi; ?></p>
               </div>

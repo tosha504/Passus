@@ -1,7 +1,6 @@
 body {
-  &.blog {
-    background-color: var(--white);
-
+  &.blog,
+  &.post-type-archive-current-reports {
     .posts-content {
       padding: 40px 0;
 
@@ -13,6 +12,27 @@ body {
           }
           box-shadow: 8px 8px 24px -4px rgba(23, 23, 23, 0.08);
           border: 1px solid transparent;
+          #shortText {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+          }
+          #fullText {
+            visibility: visible;
+            opacity: 1;
+            display: block !important;
+          }
+        }
+
+        #shortText {
+          visibility: visible;
+          opacity: 1;
+          transition: visibility 0s, opacity 0.5s linear;
+        }
+        #fullText {
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 0s, opacity 0.5s linear;
         }
 
         transition: 0.35s;
@@ -21,6 +41,13 @@ body {
         border-radius: 12px;
         &:not(:last-child) {
           margin-bottom: 24px;
+        }
+
+        .date-cat {
+          font-weight: 600;
+          p {
+            margin-bottom: 0 !important;
+          }
         }
 
         @media (min-width: map-get($grid-breakpoints, lg)) {
@@ -46,6 +73,21 @@ body {
           margin-top: 24px;
           color: var(--black);
         }
+      }
+    }
+
+    .load-more-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+
+      a {
+        background-color: var(--grey5);
+        border-radius: 12px;
+        color: var(--black);
+        font-weight: 600;
+        padding: 12px 16px;
       }
     }
 

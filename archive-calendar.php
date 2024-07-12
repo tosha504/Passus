@@ -94,14 +94,14 @@ $background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="backgr
 						</div>
 						<?php
 								foreach ($past_events as $event) {
-									$icon_categories = get_field('icon_categories', 'term_' . $event["terms"][0]->term_id); ?>
+									$icon_categories = get_field('icon_categories_not', 'term_' . $event["terms"][0]->term_id); ?>
 							<div class='past-events__event'>
 								<div>
 									<p><?php echo  $event['date_event']; ?></p>
 								</div>
 								<div>
 									<p><?php echo  $event['title'] ?></p>
-									<p class='cat-item'><?php echo $event["terms"][0]->name . file_get_contents(wp_get_attachment_image_url($icon_categories, 'full'));  ?>
+									<p class='cat-item'><?php echo file_get_contents(wp_get_attachment_image_url($icon_categories, 'full')) . $event["terms"][0]->name;  ?>
 
 								</div>
 							</div>

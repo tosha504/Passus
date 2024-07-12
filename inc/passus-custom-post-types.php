@@ -29,6 +29,20 @@ function register_post_types()
     'rewrite' => array('slug' => 'raporty-biezace'),
     'has_archive' => true,
   ));
+
+  register_post_type('members', array(
+    'label' => 'Członkowie',
+    'public' => true,
+    'menu_icon'           => 'dashicons-buddicons-buddypress-logo',
+    'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+  ));
+
+  register_post_type('corporate-documents', array(
+    'label' => 'Dokumenty Korporacyjne',
+    'public' => true,
+    'menu_icon'           => 'dashicons-media-document',
+    'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+  ));
 }
 
 

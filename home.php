@@ -8,22 +8,15 @@
  * @package passus
  */
 
-get_header();
-
-
-?>
-
+get_header(); ?>
 <main id="primary" class="site-main">
 
 	<?php
 	$args = curent_setting_args();
 	$args['posts_per_page'] = -1;
 	$query = new WP_Query($args);
-
-
 	$calendar_descr = get_field('calendar_descr', 'options');
-	$background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="background-image: url(' . wp_get_attachment_url(get_field('bg_archive_image', 'options')) . ');"' : '';
-	?>
+	$background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="background-image: url(' . wp_get_attachment_url(get_field('bg_archive_image', 'options')) . ');"' : ''; ?>
 
 	<div class="archive-header-ps" <?php echo $background; ?>>
 		<div class="container">
@@ -42,9 +35,7 @@ get_header();
 					endwhile;
 					?>
 				</div>
-				<!-- <?php if ($query->found_posts >= $query->query['posts_per_page']) echo '<button id="loadMorePostMyLord">jopa</button>'; ?> -->
 			<?php
-
 			else :
 				get_template_part('template-parts/content', 'none');
 

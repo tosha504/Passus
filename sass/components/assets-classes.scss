@@ -13,3 +13,16 @@
     left: 0;
   }
 }
+
+.date-cat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+
+  .cat {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: var(--grey5);
+  }
+}

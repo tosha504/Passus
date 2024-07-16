@@ -27,13 +27,19 @@ get_header(); ?>
 	</div>
 	<div class="container">
 		<div class="posts-content">
-			<?php display_year_buttons(get_post_type());
+			<?php
+			display_year_buttons(get_post_type());
 			if ($query->have_posts()) : ?>
 				<div id="post-list">
-					<?php while ($query->have_posts()) : $query->the_post();
-						get_template_part('template-parts/content', get_post_type());
-					endwhile;
-					?>
+					<?php
+					$post_count = 0;
+					while ($query->have_posts()) {
+						$query->the_post();
+						$class = ($post_count == 0) ? ' active' : '';
+						// Include the class with the template part
+						get_template_part('template-parts/content', get_post_type(), array('class' => $class));
+						$post_count++;
+					} ?>
 				</div>
 			<?php
 			else :

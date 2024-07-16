@@ -11,7 +11,8 @@ if (!function_exists('start_scripts')) {
 	function start_scripts()
 	{
 		$query_args =	 curent_setting_args();
-		$query_args['post_type'] = get_post_type();
+		$query_args['post_type'] = get_queried_object()->name;
+
 		$my_query = new WP_Query($query_args);
 		$theme_uri = get_template_directory_uri();
 		// Custom JS
@@ -43,6 +44,10 @@ function custom_block_theme_acf_enqueue_scripts()
 	// wp_register_script('slick_theme_functions', $theme_uri . '/libery/slick.min.js', [], false, true);
 	if (has_block('acf/segments-ps', get_queried_object_id())) {
 		wp_enqueue_script('segments-ps', get_template_directory_uri() . "/blocks/segments-ps/segments-ps.js", array(), '1.0.0', true);
+	}
+
+	if (has_block('acf/search-doscs-ps', get_queried_object_id())) {
+		wp_enqueue_script('search-doscs-ps', get_template_directory_uri() . "/blocks/search-doscs-ps/search-doscs-ps.js", array(), '1.0.0', true);
 	}
 }
 add_action('wp_enqueue_scripts', 'custom_block_theme_acf_enqueue_scripts');

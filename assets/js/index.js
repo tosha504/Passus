@@ -51,6 +51,26 @@
       }
     });
   });
+  if (jQuery('.type-periodic-reports, .type-shareholders').hasClass('active')) {
+    jQuery('.type-periodic-reports.active .content, .type-shareholders.active .content').slideDown(200);
+  }
+  jQuery(body).on('click', '.type-periodic-reports h2 , .type-shareholders h2', function (e) {
+    toggleActiveClassPeriodic(jQuery(this));
+  });
+  function toggleActiveClassPeriodic(e) {
+    console.log(jQuery(e).closest('article').find('.content').is(':visible'));
+    if (jQuery(e).closest('article').siblings().find('.content').is(':visible')) {
+      jQuery(e).closest('article').siblings().removeClass('active');
+      jQuery(e).closest('article').siblings().children('.content').slideUp(200);
+    }
+
+    // if (jQuery(e).closest('article').find('.content').is(':visible')) {
+    //   jQuery(e).siblings('.content').slideUp(200)
+    // }
+
+    jQuery(e).closest('article').toggleClass('active');
+    jQuery(e).siblings('.content').slideToggle(200);
+  }
   function toggleText(e) {
     jQuery(e).parent().toggleClass('active');
     jQuery(e).parent().hasClass('active') ? jQuery(e).text('Zwiń') : jQuery(e).text('Rozwiń');
@@ -120,44 +140,6 @@
       }
     });
   }
-
-  // setTimeout(function () {
-  //   if (getCookie('popupCookie') != 'submited') {
-  //     jQuery('.cookies').css("display", "block").hide().fadeIn(2000);
-  //   }
-
-  //   jQuery('a.submit').click(function () {
-  //     jQuery('.cookies').fadeOut();
-  //     //sets the coookie to five minutes if the popup is submited (whole numbers = days)
-  //     setCookie('popupCookie', 'submited', 7);
-  //   });
-  // }, 5000);
-
-  // function getCookie(cname) {
-  //   var name = cname + "=";
-  //   var ca = document.cookie.split(';');
-  //   for (var i = 0; i < ca.length; i++) {
-  //     var c = ca[i];
-  //     while (c.charAt(0) == ' ') {
-  //       c = c.substring(1);
-  //     }
-  //     if (c.indexOf(name) == 0) {
-  //       return c.substring(name.length, c.length);
-  //     }
-  //   }
-  //   return "";
-  // }
-
-  // function setCookie(cname, cvalue, exdays) {
-  //   var d = new Date();
-  //   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  //   var expires = "expires=" + d.toUTCString();
-  //   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  // }
-
-  // if (getCookie('ageVerification') !== 'submited') {
-  //   jQuery('.age-verefication').css('display', 'block')
-  // }
 })(jQuery);
 
 /***/ }),

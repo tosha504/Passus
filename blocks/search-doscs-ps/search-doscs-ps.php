@@ -44,20 +44,4 @@ $dokuments = get_field('dokuments'); ?>
       <a href="#" id="loadMoreFile">Załaduj więcej</a>
     </div> -->
   </div>
-  <script>
-    jQuery(document).ready(function() {
-      jQuery('#searchInput').on('input', function() {
-        var filter = jQuery(this).val().toLowerCase();
-        jQuery('.search-doscs-ps__items_item').each(function() {
-          var title = jQuery(this).find('.item__title').text().toLowerCase();
-          var descr = jQuery(this).find('.item__descr').text().toLowerCase();
-          if (title.includes(filter) || descr.includes(filter)) {
-            jQuery(this).show();
-          } else {
-            jQuery(this).hide();
-          }
-        });
-      });
-    });
-  </script>
 </section><!-- Search-doscs-ps end -->

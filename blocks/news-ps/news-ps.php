@@ -28,15 +28,13 @@ $posts_block_ps = get_field('posts_block_ps'); ?>
     <?php show_title_and_btn($tag, $text_title, $see_more);
     if (!empty($posts_block_ps) && count($posts_block_ps) > 0) { ?>
       <ul class="news-ps__items">
-        <?php foreach ($posts_block_ps as $key => $post_ps) {
-          $trim_words = 15;
-          $excerpt = wp_trim_words($post_ps->post_excerpt, $trim_words); ?>
+        <?php foreach ($posts_block_ps as $key => $post_ps) { ?>
           <li class="news-ps__items_item">
             <a href="#">
               <?php
               echo '<p class="news-ps__items_item-date">' . date('d.m.Y', strtotime($post_ps->post_date)) . '</p>';
               echo  '<p class="news-ps__items_item-title">' . $post_ps->post_title . '</p>';
-              echo '<p class="news-ps__items_item-excerpt">' .  $excerpt . '</p>';
+              echo '<p class="news-ps__items_item-excerpt">' .  $post_ps->post_excerpt . '</p>';
               ?>
               <span>Cztaj wiecej</span>
             </a>

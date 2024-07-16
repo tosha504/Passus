@@ -1,6 +1,8 @@
 body {
   &.blog,
-  &.post-type-archive-current-reports {
+  &.post-type-archive-current-reports,
+  &.post-type-archive-periodic-reports,
+  &.post-type-archive-shareholders {
     .posts-content {
       padding: 40px 0;
 
@@ -72,6 +74,120 @@ body {
           display: flex;
           margin-top: 24px;
           color: var(--black);
+        }
+
+        &.type-periodic-reports,
+        &.type-shareholders {
+          &.active {
+            h2 {
+              color: var(--primary-theme);
+              &::after {
+                transform: rotate(180deg);
+              }
+            }
+
+            // .content {
+            //   display: block;
+            // }
+          }
+
+          h2 {
+            display: flex;
+            align-items: center;
+
+            &::after {
+              content: "";
+              margin-left: auto;
+              display: block;
+              background-image: url(../assets/images/prime-arrow-down.svg);
+              background-position: 50%;
+              background-size: cover;
+              background-repeat: no-repeat;
+              width: 27px;
+              height: 15px;
+              transition: 0.3s;
+            }
+
+            @media (hover: hover) {
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+
+          .content {
+            display: none;
+            &__content {
+              a {
+                color: var(--primary-theme);
+              }
+              padding: 30px 0;
+              border-top: 1px solid var(--grey3);
+
+              ul {
+                li {
+                  margin-left: 20px;
+                  &::marker {
+                    color: var(--primary-theme);
+                  }
+                }
+              }
+            }
+
+            .download-item {
+              list-style: none;
+              li {
+                padding: 30px 0 0;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                font-size: 20px;
+                font-weight: 600;
+                @media (max-width: map-get($grid-breakpoints, lg)) {
+                  gap: 10px;
+                  flex-wrap: wrap;
+                }
+
+                &:before {
+                  content: "";
+                  width: 21px;
+                  height: 26px;
+                  display: block;
+                  background: url(../assets/images/pdf.svg) no-repeat
+                    center/cover;
+                }
+                padding-top: 30px;
+                &:first-child {
+                  border-top: 1px solid var(--grey3);
+                }
+                &:not(:last-child) {
+                  padding-bottom: 30px;
+                  border-bottom: 1px solid var(--grey3);
+                }
+              }
+
+              .download {
+                font-size: 16px;
+                text-transform: capitalize;
+                color: var(--black);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                @media (min-width: map-get($grid-breakpoints, lg)) {
+                  margin-left: auto;
+                }
+
+                &::before {
+                  content: "";
+                  width: 16px;
+                  padding: 4px;
+                  height: 16px;
+                  background: url(../assets/images/download-icon.svg) no-repeat
+                    center/cover;
+                }
+              }
+            }
+          }
         }
       }
     }

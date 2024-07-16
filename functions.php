@@ -219,7 +219,7 @@ function display_year_buttons($post_type)
 	$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_type = '$post_type' AND post_status IN ('publish', 'private') ORDER BY post_date DESC");
 	$get_year = isset($_GET['_year']) ? intval($_GET['_year']) : intval(date('Y'));
 	echo '<form id="year-filter-form">';
-	echo '<input id="postType" type="hidden" value="' .  get_post_type() . '">';
+	echo '<input id="postType" type="hidden" value="' . $post_type . '">';
 	foreach ($years as $key => $year) {
 		$active_class = intval($get_year) === intval($year) ? "active" : "";
 
@@ -259,11 +259,9 @@ function load_more_posts_callback()
 
 function curent_setting_args()
 {
-
 	$year = isset($_GET['_year']) ? intval($_GET['_year']) : intval(date('Y'));
 	$args = array(
-		// 'post_type' => get_post_type(),
-		'posts_per_page' => 1,
+		'posts_per_page' => 3,
 		'post_status' => array('publish', 'private'),
 		'date_query' => array(
 			array(

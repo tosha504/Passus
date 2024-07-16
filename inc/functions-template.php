@@ -39,7 +39,19 @@ function banner_table_templates()
       the_row();
       if (get_row_layout() == 'simple_table') {
         get_template_part('builder-templates/simple-table');
+      } else if (get_row_layout() == 'shareholding_table') {
+        get_template_part('builder-templates/shareholding-table');
       }
     }
   }
+}
+
+
+function remove_private_prefix_from_title($title)
+{
+  if (strpos($title, 'Prywatne: ') === 0) {
+    // Remove "Private: " from the title
+    $title = str_replace('Prywatne: ', '', $title);
+  }
+  return $title;
 }

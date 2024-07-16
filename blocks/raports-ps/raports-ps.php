@@ -28,7 +28,8 @@ $descr = get_field('descr');
 $image = get_field('image');
 $background_color = !empty(get_field('background_color')) ? 'style="background:' . get_field('background_color') . ';"' : '';
 $image = get_field('image');
-$curent_reports = get_field('curent_reports'); ?>
+$curent_reports = get_field('curent_reports');
+$bg_element = !empty(get_field('bg_element')) ? 'style="background:' . get_field('bg_element') . ';"' : ''; ?>
 <!-- Raports-ps start -->
 <section class="raports-ps" <?php echo $background_color; ?>>
   <div class="container">
@@ -45,15 +46,15 @@ $curent_reports = get_field('curent_reports'); ?>
         <ul class="raports-ps__right_elemnts elements">
           <?php
           foreach ($curent_reports as $key => $reports) {
-            $espi = get_field('espi', $reports->ID);
+            $espi = !empty(get_field('espi', $reports->ID)) ? '<p class="cat">' . get_field('espi', $reports->ID) . '</p>' : '';
             $date = new DateTime($reports->post_date);
             $formattedDate = $date->format('d.m.Y');
             $trim_words = 40;
             $excerpt = wp_trim_words($reports->post_content, $trim_words); ?>
-            <li class="elements__item item">
+            <li class="elements__item item" <?php echo $bg_element; ?>>
               <div class="date-cat">
                 <p><?php echo $formattedDate ?></p>
-                <p class="cat"><?php echo $espi; ?></p>
+                <?php echo  $espi; ?>
               </div>
               <p class="item__title"><?php echo $reports->post_title ?></p>
               <p class="item__descr"><?php echo $excerpt ?></p>

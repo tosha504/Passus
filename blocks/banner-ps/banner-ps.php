@@ -27,18 +27,11 @@ $items = get_field('items'); ?>
     <?php if (!empty($items) && count($items) > 0) { ?>
       <ul class="banner-ps__items">
         <?php
-        foreach ($items as $key => $item) {
-          $link = $item['link'];
-          if ($link) {
-            $link_url = $link['url'];
-            $link_title = $link['title'];
-            $link_target = $link['target'] ? $link['target'] : '_self'; ?>
-            <li class="banner-ps__items_item"><a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo my_custom_attachment_image($item['item']); ?></a></li>
-        <?php }
-        } ?>
+        foreach ($items as $key => $item) { ?>
+          <li class="banner-ps__items_item"><?php echo my_custom_attachment_image($item['item']); ?></li>
+        <?php } ?>
       </ul>
-    <?php }
-    ?>
+    <?php } ?>
   </div>
 
 </section><!-- Banner-ps end -->

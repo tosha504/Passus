@@ -5,7 +5,7 @@
   background-color: var(--white);
 
   @media (min-width: map-get(v.$grid-breakpoints, md)) {
-    padding: 70px 0;
+    padding: 40px 0;
   }
 
   &__items {

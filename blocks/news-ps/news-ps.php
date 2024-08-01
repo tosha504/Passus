@@ -36,7 +36,7 @@ $posts_block_ps = get_field('posts_block_ps'); ?>
               echo  '<p class="news-ps__items_item-title">' . $post_ps->post_title . '</p>';
               echo '<p class="news-ps__items_item-excerpt">' .  $post_ps->post_excerpt . '</p>';
               ?>
-              <span>Cztaj wiecej</span>
+              <span>Czytaj wiecej</span>
             </a>
           </li>
         <?php } ?>

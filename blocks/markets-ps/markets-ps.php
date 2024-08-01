@@ -26,14 +26,16 @@ $elements = get_field('elements'); ?>
   <div class="container">
     <?php show_title_and_btn($tag, $text_title);
     if (!empty($elements) && count($elements) > 0) { ?>
-    <ul class="markets-ps__elements">
-      <?php foreach ($elements as $key => $element) { ?>
-      <li class="markets-ps__elements_element">
-        <?php my_custom_attachment_image($element['element_image']);
-            echo '<p class="markets-ps__elements_element-title">'. $element['element_title'].'</p>'; ?>
-      </li>
-      <?php } ?>
-    </ul>
+      <ul class="markets-ps__elements">
+        <?php foreach ($elements as $key => $element) { ?>
+          <li class="markets-ps__elements_element">
+            <a href="<?php echo $element['link'] ?>">
+              <?php my_custom_attachment_image($element['element_image']);
+              echo '<p class="markets-ps__elements_element-title">' . $element['element_title'] . '</p>'; ?>
+            </a>
+          </li>
+        <?php } ?>
+      </ul>
     <?php } ?>
   </div>
 

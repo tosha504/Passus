@@ -22,7 +22,7 @@ function register_post_types()
   ));
 
   register_post_type('current-reports', array(
-    'label' => 'Raporty Bieżące',
+    'label' => 'Raporty bieżące',
     'public' => true,
     'menu_icon'           => 'dashicons-media-text',
     'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
@@ -31,7 +31,7 @@ function register_post_types()
   ));
 
   register_post_type('periodic-reports', array(
-    'label' => 'Raporty Okresowe',
+    'label' => 'Raporty okresowe',
     'public' => true,
     'menu_icon'           => 'dashicons-database',
     'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
@@ -40,7 +40,7 @@ function register_post_types()
   ));
 
   register_post_type('shareholders', array(
-    'label' => 'Zgromadzenia Akcjonariuszy',
+    'label' => 'Zgromadzenia akcjonariuszy',
     'public' => true,
     'menu_icon'           => 'dashicons-universal-access',
     'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),

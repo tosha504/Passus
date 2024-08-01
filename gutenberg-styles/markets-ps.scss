@@ -24,13 +24,16 @@
       flex: 1 1 100%;
       border: 1px solid var(--grey3);
       transition: 0.35s;
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
       border-radius: 12px;
+      a {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        color: var(--black);
+      }
 
       @media (hover: hover) {
         &:hover {

@@ -24,7 +24,7 @@ $background_image = !empty(get_field('background-image')) ? 'style="background-i
 $content = !empty(get_field('content')) ? "<div class='bg-title-content-image-ps__content'>" . get_field('content') . "</div>" : "";
 $image = get_field('image'); ?>
 <!-- Bg-title-content-image-ps start -->
-<section class="bg-title-content-image-ps">
+<section class="bg-title-content-image-ps" <?php echo $anchor; ?>>
   <div class="container" <?php echo $background_image; ?>>
     <?php show_title_and_btn($tag_kopia, $text_title_kopia);
     echo $content; ?>

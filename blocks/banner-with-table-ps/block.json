@@ -15,10 +15,16 @@
     "mode": "edit",
     "renderTemplate": "banner-with-table-ps.php"
   },
-  "align": "full",
   "supports": {
+    "align": [
+      "left",
+      "right",
+      "center",
+      "wide",
+      "full"
+    ],
     "anchor": true,
-    "alignContent": false,
+    "alignContent": true,
     "color": {
       "text": true,
       "background": true,

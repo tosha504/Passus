@@ -1,0 +1,114 @@
+@use "../sass/components/_varibles" as v;
+.slider-table {
+  background-color: var(--white);
+
+  &__table {
+    div {
+      // > :nth-child(odd),
+      // &:first-child {
+      //   font-weight: 600;
+      // }
+      // > :nth-child(even) {
+      //   font-weight: 500;
+      // }
+
+      // &:not(:first-child) {
+      //   display: flex;
+      //   align-items: center;
+      //   padding: 12px 24px;
+      //   p {
+      //     flex: 0 1 50%;
+      //   }
+      // }
+    }
+
+    padding-bottom: 64px;
+    border: 1px solid var(--grey3);
+    border-radius: 12px;
+    overflow: hidden;
+    transform: translateY(-72px);
+    // @media (min-width: map-get(v.$grid-breakpoints, sm)) {
+    //   transform: translateY(-75px);
+    // }
+    &_top {
+      background-color: var(--grey5);
+      display: flex;
+      font-weight: 600;
+      > :last-child {
+        margin-left: auto;
+      }
+      div {
+        padding: 12px 24px;
+      }
+    }
+
+    &_body {
+      font-size: clamp(12px, 3vw, 14px);
+      display: flex;
+      @media (max-width: map-get(v.$grid-breakpoints, md)) {
+        overflow-x: auto;
+      }
+      div {
+        padding: 12px 24px;
+        // > :nth-child(odd) {
+        //   background-color: var(--grey5);
+        // }
+        // > :nth-child(even) {
+        //   background-color: var(--white);
+        // }
+      }
+
+      &-slider,
+      &-first {
+        padding: 0 !important;
+
+        div {
+          border-bottom: 1px solid var(--grey3);
+          > :nth-child(2n + 1) {
+            background-color: var(--grey5);
+          }
+          > :nth-child(even) {
+            background-color: var(--white);
+          }
+        }
+      }
+      &-first {
+        font-weight: 600;
+        width: fit-content;
+        min-width: 625px;
+        @media (max-width: map-get(v.$grid-breakpoints, md)) {
+          white-space: nowrap;
+        }
+        border-right: 1px solid var(--grey3);
+        > :nth-child(odd) {
+          background-color: var(--grey5);
+        }
+        // background-color: red;
+      }
+
+      &-slider {
+        flex: 1 1 100%;
+        display: flex;
+        .wrap {
+          display: none;
+          flex: 1 1 25%;
+          padding: 0;
+          > :first-child {
+            background-color: var(--grey3);
+          }
+          div {
+            &:not(:nth-child(2)) {
+              border-right: 1px solid var(--grey3);
+            }
+            &:nth-child(14) {
+              border-right: none;
+            }
+            &:last-child {
+              border-bottom: none; /* Remove border for the last column */
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -72,6 +72,8 @@
     jQuery(e).siblings('.content').slideToggle(200)
   }
 
+
+
   function toggleText(e) {
 
     jQuery(e).parent().toggleClass('active')
@@ -151,3 +153,33 @@
   }
 
 })(jQuery);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const wraps = document.querySelectorAll('.wrap');
+  const colsToShow = 4; // Number of columns to show at once
+  const totalCols = wraps.length;
+  let startCol = 0;
+
+  function updateColumns() {
+    wraps.forEach((wrap, index) => {
+      wrap.style.display = (index >= startCol && index < startCol + colsToShow) ? 'block' : 'none';
+    });
+  }
+
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    if (startCol > 0) {
+      startCol -= colsToShow;
+      updateColumns();
+    }
+  });
+
+  document.getElementById('next-btn').addEventListener('click', () => {
+    if (startCol + colsToShow < totalCols) {
+      startCol += colsToShow;
+      updateColumns();
+    }
+  });
+
+  // Initialize the view
+  updateColumns();
+});

@@ -31,7 +31,6 @@ function show_title_and_btn($tag, $text_title, $button = null)
   TITLE_AND_BTN;
 }
 
-
 function banner_table_templates()
 {
   if (have_rows('tables')) {
@@ -41,6 +40,8 @@ function banner_table_templates()
         get_template_part('builder-templates/simple-table');
       } else if (get_row_layout() == 'shareholding_table') {
         get_template_part('builder-templates/shareholding-table');
+      } else if (get_row_layout() == 'slider_table') {
+        get_template_part('builder-templates/slider-table');
       }
     }
   }

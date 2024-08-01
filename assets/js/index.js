@@ -141,6 +141,32 @@
     });
   }
 })(jQuery);
+document.addEventListener('DOMContentLoaded', function () {
+  var wraps = document.querySelectorAll('.wrap');
+  var colsToShow = 4; // Number of columns to show at once
+  var totalCols = wraps.length;
+  var startCol = 0;
+  function updateColumns() {
+    wraps.forEach(function (wrap, index) {
+      wrap.style.display = index >= startCol && index < startCol + colsToShow ? 'block' : 'none';
+    });
+  }
+  document.getElementById('prev-btn').addEventListener('click', function () {
+    if (startCol > 0) {
+      startCol -= colsToShow;
+      updateColumns();
+    }
+  });
+  document.getElementById('next-btn').addEventListener('click', function () {
+    if (startCol + colsToShow < totalCols) {
+      startCol += colsToShow;
+      updateColumns();
+    }
+  });
+
+  // Initialize the view
+  updateColumns();
+});
 
 /***/ }),
 

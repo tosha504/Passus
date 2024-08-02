@@ -16,16 +16,25 @@ $columns_2 = get_sub_field('columns_2'); ?>
       <div class="slider-table__table">
         <div class="slider-table__table_top">
           <div>Wyniki roczne</div>
-          <div>Pobierz tabelę w formacie XLS</div>
+          <div><?php
+                $link = get_sub_field('link');
+                if ($link) :
+                  $link_url = $link['url'];
+                  $link_title = $link['title'];
+                  $link_target = $link['target'] ? $link['target'] : '_self';
+                ?>
+              <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+            <?php endif; ?>
+          </div>
           <div id="controls">
-            <button id="prev-btn">Previous</button>
-            <button id="next-btn">Next</button>
+            <button id="prev-btn" aria-label="Previous"></button>
+            <button id="next-btn" aria-label="Next"></button>
           </div>
         </div>
         <div class="slider-table__table_body">
           <div class="slider-table__table_body-first">
             <div style="background-color: var(--grey3)">
-              <p style="opacity: 0;">trait_exists</p>
+              <p style="opacity: 0;font-size: 20px;">trait_exists</p>
             </div>
             <div>Sprawozdanie z wyniku i przepływów pieniężnych (dane za okres) Grupy Passus S.A.</div>
             <div>Przychody netto ze sprzedaży</div>

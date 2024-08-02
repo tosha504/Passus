@@ -41,9 +41,9 @@
       border-radius: 8px;
       padding: 8px 10px;
       transition: 0.35s;
+      position: relative;
       @media (hover: hover) {
         &:hover {
-          backdrop-filter: blur(25px);
           background-color: var(--blur);
           cursor: pointer;
 
@@ -57,7 +57,7 @@
             ul {
               opacity: 1;
               visibility: visible;
-              backdrop-filter: blur(25px);
+              // backdrop-filter: blur(25px);
               background-color: var(--blur);
               li {
                 backdrop-filter: none;

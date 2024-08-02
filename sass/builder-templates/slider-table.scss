@@ -22,7 +22,6 @@
       // }
     }
 
-    padding-bottom: 64px;
     border: 1px solid var(--grey3);
     border-radius: 12px;
     overflow: hidden;
@@ -33,9 +32,70 @@
     &_top {
       background-color: var(--grey5);
       display: flex;
+      align-items: center;
+      @media (max-width: map-get(v.$grid-breakpoints, md)) {
+        flex-wrap: wrap;
+      }
       font-weight: 600;
-      > :last-child {
+      > :first-child {
+        font-size: clamp(16px, 3vw, 20px);
+      }
+      > :nth-child(2) {
+        padding: 0;
+        @media (max-width: map-get(v.$grid-breakpoints, md)) {
+          padding: 0 24px;
+        }
+        a {
+          background-color: var(--white);
+          border-radius: 12px;
+          font-size: 14px;
+          padding: 8px 16px;
+          color: var(--black);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          &::before {
+            content: "";
+            display: block;
+            width: 13px;
+            height: 13px;
+            background: url(../assets/images/download-icon.svg) no-repeat
+              center/cover;
+          }
+        }
+      }
+
+      #controls {
         margin-left: auto;
+        @media (max-width: map-get(v.$grid-breakpoints, md)) {
+          margin-left: 0;
+        }
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        #prev-btn,
+        #next-btn {
+          background-color: var(--white);
+          height: 40px;
+          width: 40px;
+          border: none;
+          border-radius: 50px;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+          @media (hover: hover) {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+        #prev-btn {
+          background-image: url(../assets/images/arrow-left.svg);
+        }
+        #next-btn {
+          background-image: url(../assets/images/arrow-right.svg);
+        }
       }
       div {
         padding: 12px 24px;
@@ -63,6 +123,9 @@
         padding: 0 !important;
 
         div {
+          @media (max-width: map-get(v.$grid-breakpoints, sm)) {
+            height: 50px;
+          }
           border-bottom: 1px solid var(--grey3);
           > :nth-child(2n + 1) {
             background-color: var(--grey5);
@@ -70,38 +133,48 @@
           > :nth-child(even) {
             background-color: var(--white);
           }
+          &:last-child {
+            border-bottom: none; /* Remove border for the last column */
+          }
         }
       }
       &-first {
-        font-weight: 600;
-        width: fit-content;
         min-width: 625px;
-        @media (max-width: map-get(v.$grid-breakpoints, md)) {
-          white-space: nowrap;
+        div {
+          width: 100%;
+          font-weight: 600;
+          @media (max-width: map-get(v.$grid-breakpoints, md)) {
+            white-space: nowrap;
+          }
+          border-right: 1px solid var(--grey3);
         }
-        border-right: 1px solid var(--grey3);
+
         > :nth-child(odd) {
           background-color: var(--grey5);
         }
-        // background-color: red;
       }
 
       &-slider {
         flex: 1 1 100%;
         display: flex;
         .wrap {
+          text-align: right;
           display: none;
           flex: 1 1 25%;
           padding: 0;
           > :first-child {
             background-color: var(--grey3);
+            color: var(--primary-theme);
+            border-left: 1px solid var(--grey5);
+            font-size: 20px !important;
+            font-weight: 700;
           }
           div {
             &:not(:nth-child(2)) {
               border-right: 1px solid var(--grey3);
             }
             &:nth-child(14) {
-              border-right: none;
+              border-left: none;
             }
             &:last-child {
               border-bottom: none; /* Remove border for the last column */

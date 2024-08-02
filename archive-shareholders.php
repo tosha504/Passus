@@ -20,7 +20,6 @@ $background =  !empty(get_field('bg_image_current_arch_periodic_reports', 'optio
 			echo '<p>' . $descr_periodic_reports . '</p>'; ?>
 		</div>
 	</div>
-
 	<?php
 	$args = curent_setting_args();
 	$queried_object = get_queried_object();
@@ -30,6 +29,7 @@ $background =  !empty(get_field('bg_image_current_arch_periodic_reports', 'optio
 	if ($query->have_posts()) { ?>
 		<div class="container">
 			<div class="posts-content">
+				<?php display_year_buttons(get_queried_object()->name); ?>
 				<div id="post-list">
 					<?php
 					$post_count = 0;

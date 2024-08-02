@@ -11,7 +11,7 @@ if (!function_exists('start_scripts')) {
 	function start_scripts()
 	{
 		$query_args =	 curent_setting_args();
-		$query_args['post_type'] = get_queried_object()->name;
+		$query_args['post_type'] = !empty(get_queried_object()->name) ? get_queried_object()->name : '';
 
 		$my_query = new WP_Query($query_args);
 		$theme_uri = get_template_directory_uri();

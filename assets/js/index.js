@@ -140,8 +140,6 @@
       }
     });
   }
-})(jQuery);
-document.addEventListener('DOMContentLoaded', function () {
   var wraps = document.querySelectorAll('.wrap');
   var colsToShow = 4; // Number of columns to show at once
   var totalCols = wraps.length;
@@ -151,13 +149,13 @@ document.addEventListener('DOMContentLoaded', function () {
       wrap.style.display = index >= startCol && index < startCol + colsToShow ? 'block' : 'none';
     });
   }
-  document.getElementById('prev-btn').addEventListener('click', function () {
+  jQuery('#prev-btn').on('click', function () {
     if (startCol > 0) {
       startCol -= colsToShow;
       updateColumns();
     }
   });
-  document.getElementById('next-btn').addEventListener('click', function () {
+  jQuery('#next-btn').on('click', function () {
     if (startCol + colsToShow < totalCols) {
       startCol += colsToShow;
       updateColumns();
@@ -166,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize the view
   updateColumns();
-});
+})(jQuery);
 
 /***/ }),
 

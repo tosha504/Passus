@@ -152,9 +152,6 @@
     })
   }
 
-})(jQuery);
-
-document.addEventListener('DOMContentLoaded', () => {
   const wraps = document.querySelectorAll('.wrap');
   const colsToShow = 4; // Number of columns to show at once
   const totalCols = wraps.length;
@@ -166,14 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.getElementById('prev-btn').addEventListener('click', () => {
+  jQuery('#prev-btn').on('click', () => {
     if (startCol > 0) {
       startCol -= colsToShow;
       updateColumns();
     }
   });
 
-  document.getElementById('next-btn').addEventListener('click', () => {
+  jQuery('#next-btn').on('click', () => {
     if (startCol + colsToShow < totalCols) {
       startCol += colsToShow;
       updateColumns();
@@ -182,4 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize the view
   updateColumns();
-});
+
+})(jQuery);
+

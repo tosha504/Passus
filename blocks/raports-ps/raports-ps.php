@@ -42,27 +42,39 @@ $bg_element = !empty(get_field('bg_element')) ? 'style="background:' . get_field
     </div>
 
     <div class="raports-ps__right">
-      <?php if (!empty($curent_reports) && count($curent_reports) > 0) { ?>
-        <ul class="raports-ps__right_elemnts elements">
-          <?php
-          foreach ($curent_reports as $key => $reports) {
-            $espi = !empty(get_field('espi', $reports->ID)) ? '<p class="cat">' . get_field('espi', $reports->ID) . '</p>' : '';
-            $date = new DateTime($reports->post_date);
-            $formattedDate = $date->format('d.m.Y');
-            $trim_words = 40;
-            $excerpt = wp_trim_words($reports->post_content, $trim_words); ?>
-            <li class="elements__item item" <?php echo $bg_element; ?>>
-              <div class="date-cat">
-                <p><?php echo $formattedDate ?></p>
-                <?php echo  $espi; ?>
-              </div>
-              <p class="item__title"><?php echo $reports->post_title ?></p>
-              <p class="item__descr"><?php echo $excerpt ?></p>
-              <span>Pełna treść raportu</span>
-            </li>
-          <?php } ?>
-        </ul>
-      <?php } ?>
+      <?php if (!empty($curent_reports)) {
+        $args = array(
+          'post_type' => $curent_reports,
+          'posts_per_page' => 3,
+          'post_status' => array('publish', 'private'),
+          'orderby'   => 'meta_value',
+          'order' => 'DESC',
+        );
+        $query = new WP_Query($args);
+        if ($query->have_posts()) { ?>
+          <ul class="raports-ps__right_elemnts elements">
+            <?php while ($query->have_posts()) {
+              $query->the_post();
+              $espi = !empty(get_field('espi', get_the_ID())) ? '<p class="cat">' . get_field('espi', get_the_ID()) . '</p>' : '';
+              $date = new DateTime(get_the_date());
+              $formattedDate = $date->format('d.m.Y');
+              $trim_words = 40;
+              $excerpt = wp_trim_words(get_the_content(), $trim_words); ?>
+              <li class="elements__item item" <?php echo $bg_element; ?>>
+                <a href="<?php echo get_site_url() . '/' . get_post_type_object($curent_reports)->rewrite['slug'] . '/#post-' . get_the_ID(); ?>">
+                  <div class="date-cat">
+                    <p><?php echo $formattedDate ?></p>
+                    <?php echo  $espi; ?>
+                  </div>
+                  <p class="item__title"><?php echo remove_private_prefix_from_title(get_the_title()); ?></p>
+                  <p class="item__descr"><?php echo $excerpt; ?></p>
+                  <span>Pełna treść raportu</span>
+                </a>
+              </li>
+          <?php }
+          } ?>
+          </ul>
+        <?php } ?>
     </div>
   </div>
 </section><!-- Raports-ps end -->

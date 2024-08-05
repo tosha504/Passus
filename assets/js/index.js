@@ -18,6 +18,7 @@
     e.preventDefault();
     toggleText(jQuery(this));
   });
+  jQuery('article.active #toggleButton').text('Zwiń');
   jQuery('#loadMorePostMyLord').click(function (e) {
     e.preventDefault();
     var year = jQuery('.year-filter.active').val();

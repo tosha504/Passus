@@ -30,13 +30,13 @@ $posts_block_ps = get_field('posts_block_ps'); ?>
       <ul class="news-ps__items">
         <?php foreach ($posts_block_ps as $key => $post_ps) { ?>
           <li class="news-ps__items_item">
-            <a href="#">
+            <a href="<?php echo get_site_url() . "/aktualnosci/" ?>">
               <?php
               echo '<p class="news-ps__items_item-date">' . date('d.m.Y', strtotime($post_ps->post_date)) . '</p>';
               echo  '<p class="news-ps__items_item-title">' . $post_ps->post_title . '</p>';
               echo '<p class="news-ps__items_item-excerpt">' .  $post_ps->post_excerpt . '</p>';
               ?>
-              <span>Czytaj wiecej</span>
+              <span>Czytaj więcej</span>
             </a>
           </li>
         <?php } ?>

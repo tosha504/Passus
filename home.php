@@ -14,9 +14,10 @@ get_header(); ?>
 	<?php
 	$args = curent_setting_args();
 	$args['posts_per_page'] = -1;
+	$args['post_type'] = 'post';
 	$query = new WP_Query($args);
 	$calendar_descr = get_field('calendar_descr', 'options');
-	$background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="background-image: url(' . wp_get_attachment_url(get_field('bg_archive_image', 'options')) . ');"' : ''; ?>
+	$background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="background-image: url(' . wp_get_attachment_url(get_field('bg_archive_image', 'options')) . ');"' : '';?>
 
 	<div class="archive-header-ps" <?php echo $background; ?>>
 		<div class="container">
@@ -28,8 +29,9 @@ get_header(); ?>
 	<div class="container">
 		<div class="posts-content">
 			<?php
-			display_year_buttons(get_post_type());
-			if ($query->have_posts()) : ?>
+
+display_year_buttons(	$args['post_type']);
+if ($query->have_posts()) :?>
 				<div id="post-list">
 					<?php
 					$post_count = 0;

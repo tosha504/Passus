@@ -28,9 +28,11 @@ $posts_block_ps = get_field('posts_block_ps'); ?>
     <?php show_title_and_btn($tag, $text_title, $see_more);
     if (!empty($posts_block_ps) && count($posts_block_ps) > 0) { ?>
       <ul class="news-ps__items">
-        <?php foreach ($posts_block_ps as $key => $post_ps) { ?>
+        <?php foreach ($posts_block_ps as $key => $post_ps) {
+          $year = date("Y", strtotime($post_ps->post_date_gmt));
+          $year_url =intval(date('Y')) > intval($year) ? "?_year={$year}" : ""; ?>
           <li class="news-ps__items_item">
-            <a href="<?php echo get_site_url() . "/aktualnosci/" ?>">
+            <a href="<?php echo get_site_url() . "/aktualnosci/{$year_url}#post-" . $post_ps->ID; ?>">
               <?php
               echo '<p class="news-ps__items_item-date">' . date('d.m.Y', strtotime($post_ps->post_date)) . '</p>';
               echo  '<p class="news-ps__items_item-title">' . $post_ps->post_title . '</p>';

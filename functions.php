@@ -271,3 +271,11 @@ function curent_setting_args()
 	);
 	return $args;
 }
+
+
+function custom_mime_types($mimes)
+{
+	$mimes['xhtml'] = 'application/xhtml+xml';
+	return $mimes;
+}
+add_filter('upload_mimes', 'custom_mime_types');

@@ -29,6 +29,7 @@ $background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="backgr
 				'post_type' => 'calendar',  // Change to your custom post type if necessary
 				'posts_per_page' => -1, // Retrieve all posts
 				'orderby' => 'meta_value', // Order by meta value
+				'post_status' => array('publish', 'private'),
 				'meta_key' => 'date_event_ps', // Key of the custom field to sort by
 				'order' => 'ASC', // Sort in ascending order
 			);
@@ -55,7 +56,7 @@ $background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="backgr
 
 				// Output upcoming events
 				if (!empty($upcoming_events)) {	?>
-					<h2>Aktualne i nadchodzące wydarzenia</h2>
+					<h2>Nadchodzące wydarzenia</h2>
 					<div class='upcoming-events'>
 						<div class='past-events__event top'>
 							<div>
@@ -74,7 +75,7 @@ $background =  !empty(get_field('bg_archive_image', 'options')) ? 'style="backgr
 									<p><?php echo $event['date_event']; ?></p>
 								</div>
 								<div>
-									<p><?php echo  $event['title']; ?></p>
+									<p><?php echo  remove_private_prefix_from_title($event['title']); ?></p>
 									<p class='cat-item'><?php echo $event["terms"][0]->name . file_get_contents(wp_get_attachment_image_url($icon_categories, 'full')); ?> </p>
 									<p><a class='button' href='<?php echo $event['permalink']; ?>'>Dodaj do kalendarza</a></p>
 								</div>

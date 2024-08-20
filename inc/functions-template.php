@@ -54,5 +54,10 @@ function remove_private_prefix_from_title($title)
     // Remove "Private: " from the title
     $title = str_replace('Prywatne: ', '', $title);
   }
+  if (strpos($title, 'Private: ') === 0) {
+    // Remove "Private: " from the title
+    $title = str_replace('Private: ', '', $title);
+  }
+
   return $title;
 }

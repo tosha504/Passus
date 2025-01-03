@@ -7,7 +7,6 @@
  *
  * @package passus
  */
-var_dump($_GET);
 ?>
 
 <section class="no-results not-found">

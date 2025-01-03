@@ -20,16 +20,16 @@ $background =  !empty(get_field('bg_image_current_arch_periodic_reports', 'optio
 			echo '<p>' . $descr_periodic_reports . '</p>'; ?>
 		</div>
 	</div>
+	<div class="container">
+		<div class="posts-content">
+			<?php display_year_buttons(get_queried_object()->name); ?>
+			<?php
+			$args = curent_setting_args();
+			$queried_object = get_queried_object();
+			$args['post_type'] = $queried_object->name;
+			$query = new WP_Query($args);
+			if ($query->have_posts()) { ?>
 
-	<?php
-	$args = curent_setting_args();
-	$queried_object = get_queried_object();
-	$args['post_type'] = $queried_object->name;
-	$query = new WP_Query($args);
-	if ($query->have_posts()) { ?>
-		<div class="container">
-			<div class="posts-content">
-				<?php display_year_buttons(get_queried_object()->name); ?>
 				<div id="post-list">
 					<?php
 					$post_count = 0;
@@ -47,14 +47,14 @@ $background =  !empty(get_field('bg_image_current_arch_periodic_reports', 'optio
 						<a href="#" id="loadMorePostMyLord">Załaduj więcej</a>
 					</div>';
 				} ?>
-			</div>
-		</div>
-	<?php } else {
-		// If no posts are found, load the template part for displaying no posts available
-		get_template_part('template-parts/content', 'none');
-	}
-	?>
 
+			<?php } else {
+				// If no posts are found, load the template part for displaying no posts available
+				echo "<h2>Nie mamy tutaj jeszcze dokumentów!</h2>";
+			}
+			?>
+		</div>
+	</div>
 </main><!-- #main -->
 
 <?php

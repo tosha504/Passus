@@ -20,16 +20,15 @@ $background =  !empty(get_field('bg_image_current_arch', 'options')) ? 'style="b
 			echo '<p>' . $calendar_descr . '</p>'; ?>
 		</div>
 	</div>
-
-	<?php
-	$args = curent_setting_args();
-	$queried_object_name = get_queried_object()->name;
-	$args['post_type'] = $queried_object_name;
-	$query = new WP_Query($args);
-	if ($query->have_posts()) { ?>
-		<div class="container">
-			<div class="posts-content">
-				<?php display_year_buttons($queried_object_name); ?>
+	<div class="container">
+		<div class="posts-content">
+			<?php display_year_buttons(get_queried_object()->name); ?>
+			<?php
+			$args = curent_setting_args();
+			$queried_object_name = get_queried_object()->name;
+			$args['post_type'] = $queried_object_name;
+			$query = new WP_Query($args);
+			if ($query->have_posts()) { ?>
 				<div id="post-list">
 					<?php
 					$post_count = 0;
@@ -47,14 +46,14 @@ $background =  !empty(get_field('bg_image_current_arch', 'options')) ? 'style="b
 						<a href="#" id="loadMorePostMyLord">Załaduj więcej</a>
 					</div>';
 				} ?>
-			</div>
-		</div>
-	<?php } else {
-		// If no posts are found, load the template part for displaying no posts available
-		get_template_part('template-parts/content', 'none');
-	}
-	?>
 
+			<?php } else {
+				// If no posts are found, load the template part for displaying no posts available
+				echo "<h2>Nie mamy tutaj jeszcze dokumentów!</h2>";
+			}
+			?>
+		</div>
+	</div>
 </main><!-- #main -->
 
 <?php

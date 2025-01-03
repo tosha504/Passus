@@ -218,11 +218,19 @@ function display_year_buttons($post_type)
 	global $wpdb;
 	$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_type = '$post_type' AND post_status IN ('publish', 'private') ORDER BY post_date DESC");
 	$get_year = isset($_GET['_year']) ? intval($_GET['_year']) : intval(date('Y'));
+	// Convert all years to integers to avoid string duplicates
+	$years = array_map('intval', $years);
+	$current_year = intval(date('Y'));
+	// Check if the current year already exists in the list
+	if (!in_array($current_year, $years, true)) {
+		array_unshift($years, $current_year);
+	}
+	// Remove any accidental duplicates
+	$years = array_unique($years);
 	echo '<form id="year-filter-form">';
 	echo '<input id="postType" type="hidden" value="' . $post_type . '">';
 	foreach ($years as $key => $year) {
 		$active_class = intval($get_year) === intval($year) ? "active" : "";
-
 		echo '<button type="submit" class="year-filter ' . $active_class . '" name="_year" value="' . esc_attr($year) . '">' . esc_html($year) . '</button>';
 	}
 	echo '</form>';

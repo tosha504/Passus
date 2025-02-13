@@ -30,12 +30,10 @@
         'post_type': postType
       },
       beforeSend: function (xhr) {
-
       },
       success: function (data) {
         if (data) {
-          jQuery('#post-list').append(data);
-
+          jQuery('#post-list').html(data);
           localizedObject.current_page++;
           console.log(localizedObject.current_page == localizedObject.max_page, parseInt(localizedObject.current_page), parseInt(localizedObject.max_page));
           if (parseInt(localizedObject.current_page) == parseInt(localizedObject.max_page))

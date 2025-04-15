@@ -61,7 +61,7 @@ $bg_element = !empty(get_field('bg_element')) ? 'style="background:' . get_field
               $trim_words = 40;
               $excerpt = wp_trim_words(get_the_content(), $trim_words); ?>
               <li class="elements__item item" <?php echo $bg_element; ?>>
-                <a href="<?php echo get_site_url() . '/' . get_post_type_object($curent_reports)->rewrite['slug'] . '/#post-' . get_the_ID(); ?>">
+                <a href="<?php echo get_site_url() . '/' . get_post_type_object($curent_reports)->rewrite['slug'] . '?_year=' .  $date->format('Y') . '/#post-' . get_the_ID(); ?>">
                   <div class="date-cat">
                     <p><?php echo $formattedDate ?></p>
                     <?php echo  $espi; ?>
